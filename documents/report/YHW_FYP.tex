@@ -1,4 +1,3 @@
-% $Id: jfsample.tex,v 19:a118fd22993e 2013/05/24 04:57:55 stanton $
 \documentclass[11pt]{article}
 
 % DEFAULT PACKAGE SETUP
@@ -20,7 +19,7 @@
 
 % Notes options
 \ifnotes{%
-\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+\usepackage[margin=3in,paperwidth=10in,right=3in]{geometry}%
 \usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
 }{%
 \usepackage[margin=1in]{geometry}%
@@ -82,7 +81,7 @@
 
 \author{Gigi Wang\thanks{Email: ywang19@gsb.columbia.com}}
 
-\title{\Large \bf Socially Connected Firm Return}
+\title{\huge \bf Socially Connected Holding and Stock Return}
 
 \date{}              % No date for final submission
 
@@ -100,29 +99,56 @@
 \end{doublespace}
 
 \medskip
-
-\noindent JEL classification: XXX, YYY.
-
 \clearpage
 
-
-\noindent Note that the JF doesn't want the first section to be titled, and the text here is not indented.\footnote{Here's a sample footnote (endnote).} Let's put in some sections and subsections to see how they get formatted.
-
 \section{Introduction}
+\begin{doublespace}
 Social networks plays an important role in the financial market. A seminal paper by \cite{cohen2008small}
  uses social networks between mutual funds and their holding company to identity information transfer in security markets. They find that portfolio managers place larger bets on connected firms and this portfolio allocation behavior have significant impact on fund performance. 
 
-\cite{cohen2008small} asks how information disseminates through agents in financial markets and into security prices. The information flow could move though social networks in multiple ways. First
+ \cite{cohen2008small} find a systematic pattern across the entire uinverse of U.S. mutal fund portfolio managers: fund managers place larger concentrated bets on socially connected firms. Moreover, they create calender time portfolios that mimic the aggreate portfolio allocations of the mutual fund sector in connected and nonconnected stocks and show the connoned aggregate portfolio outperform the nonconnected one. 
+
+\cite{cohen2008small} mainly ask how information disseminates through agents in financial markets and into security prices. The information flow could move though social networks in multiple ways. The first channel is a direct transfer from senior firm officiers to portfolio managers. The second channel is less information gathering effort imposed on portfolio managers.  The third channel, which is similar to the second one, is social networks makes it cheaper to access information on managers of the holded firms and to evaluate managerial quality. 
+
+What is missing from \cite{cohen2008small} is, as written in their paper, ``not able to rule out any of these mechanisms'' through which infomation move through social networks. The goal of my paper is to shed light on those missing mechanisms and to provide firm-level return evidence on the impact of social networks. 
+
+There are two major differences of my paper from \cite{cohen2008small}. First, I provide firm-level evidence of how social networks affect firm's future stock return. To the best of my knowledge, this is the first paper that investigate the relationship between social networks and individual stock return. Second, I invesigate the the change in socially connected holdings and explore its predictive power on future stock return. While \cite{cohen2008small} assumes constant holdings between report dates and focus on contemporaneous aggregate connected versus nonconnected portfolio performance. 
+
+This paper replicates several key results of \cite{cohen2008small} and confirms that mutual fund managers do place larger portolio weights on connected firms copmared with nonconnected ones. However, I do not find systematic outperformance of the aggregage connected portolio versus aggregate connected portfolio in the most recent decade sample. 
+
+Apart from not being able to find similar pattern of aggregate portfolio performance in the recent decade, most surprisingly, I find contradicting firm-level response compared with \cite{cohen2008small} aggregate portfolio performance. My preliminary tests indicate that an increase in connected holding measure for a specific companry negatively predicts future returns. The puzzling observation is worth for further investigation and future research. 
+
+One possible explaination of the negative predicting effect of firm level social connection is company directors' slackness. Instead of a direct transfer from company officers to fund portfolio managers, a reverse rent extraction could exist between the two agents (company officers and fund managers). When a company becomes more socially connected, the managers of the company might simply rely on those social connections and reduce privately costly effort that improves firm performance. Social connection serves as a safety net against bad performance and firm manager's incentive to exert costly effort is reduced. Social connection is compared to an insurance mechanism that ensures slightly higher probability (compared with no social connection) of accessing the capital market. 
+
+
+\section{Literature Review}
+This paper contributes to several strands of the literature. Firstly, it is related to the analysis of social newtworks on economic outcomes. The importance of social newworks, often also referred to as social capital, have been drawing much attention among economists. There is a growing body of research documenting significant correlations between ``social capital'' variables and important outcome. \cite{bloom2012organization} document thta high social capital increases decentralized decision-making within firms. \cite{guiso2004role} show that trust, a measure of social capital, affects stock market participation and international trade. \cite{jackson2005economics} provide a survey on the economics of social networks. 
+
+There are contradicting views on the impact of social capital in the literature. Some scholars such as \cite{putnam1994making} argue that social connection within a group induces trusts and cooperative attitude, which helps better communication among individuals and thus reducing information transfer frictions. In contrast, other researchers like \cite{olson1982rise} suggest that socially conencted individuals tend to foster self-serving interest groups. Such socially connected groups creates informational barriers against outsiders. Cartels, for example, distort market efficiency and usually reduce social economic wellfare. My paper provide new empirical evidence on the two conflicting view.
+
+The finance literature also document the importance of social networks in mutual fund behavior. \cite{hong2005thy} show mutual fund managers in the same city hold similar portfolio due to word-of-mouth effect. \cite{kuhnen2005social} find cmutual fund manager connection with advisory firms is correlated with preferential contracting decision. 
+
+Secondly, this paper also links to the mutual fund literature. Social connection can be viewd as another channel to explore fund performance and fund manager abilities. \cite{chevalier1999some} uses mutual fund managers' biographical data such as Scholastic Aptitude Test (SAT) score to test fund performance. Similar to \cite{cohen2008small}, this paper explore social connections between mutual fund managers and holding company directors as measurable characteristic for mutual fund. 
+
+Thirdly, the empirical measure is related to a broad network sociology literature. For example, \cite{useem1984inner} uses corporate board linkages as a measure of personal network. This paper focuses on direct connections between company directors and mutual fund managers through same academic institutions. 
+
+Lastly, the paper could potentially contribute to a large literatue on firm manager with moral hazard.
+
+
+The empirical work on social capital has focused on two types of evidence. The first type of evidence is based on survey questions. Researchers asks respondents questions such as their perception on trusts. However, \cite{glaeser2000measuring} shows with laboratory experiments that this survey measure is not reliable.  A second emprical approach to social capital investigages organization membership.
 
 
 
-The impact of social capital on economic outcomes have been drawing much attention among economists. There is a growing body of research documenting significant correlations between ``social capital'' variables and important outcome. 
 
 
 
 
 
-However, there are contradicting views on the impact of social capital in the literature. Some scholars argue that socially connection within a group induces trusts and cooperative attitude.  Such social connection helps better communication among individuals and thus reducing information transfer frictions. In contrast, other researchers suggest that socially conencted individuals tend to foster self-serving interest groups. Such socially connected groups creates informational barriers against outsiders. Cartels, for example, distort market efficiency and usually reduce social economic wellfare. In this paper, I try to provide new empirical evidence on the two conflicting view. 
+
+
+
+
+H 
 
 
 One of the key aspects underlying the two views come from information flow. A natural labatory to ask how information disseminates is the stock market. Information moves security prices. Welfare-increasing social connections reduces information transmission frictions and improves market efficiency. While self-serving interest among socially connected market participants raises the concern of impeding informtion distribution outside the socially connected group.
@@ -130,18 +156,17 @@ One of the key aspects underlying the two views come from information flow. A na
 
 
 
-The empirical work on social capital has focused on two types of evidence. The first type of evidence is based on survey questions. Researchers asks respondents questions such as their perception on trusts. However, \cite{glaeser2000measuring} shows with laboratory experiments that this survey measure is not reliable.  A second emprical approach to social capital investigages organization membership. 
+ 
 
 
 \cite{putnam1994making}
 
 
-\subsection{Literature Review}
-blab lab lab lab lblab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab 
+
 
 \section{Data}
 I collected data from four different sources. A standard database used in mutual fund research literature is the CRSP Survivorship Bias Free Mutual Fund Database. The CRSP Mutual Fund Database includes mainly fund characteristics, such as fund returns, total net assets, expense ratios, investment objectives, fund manager names, and etc. One constraint imposed on researchers using CRSP is that it does not include detailed information about fund holdings. 
-My data on mutual fund holdings come from the Thomson Reuters CDA/Spectrum S12 database, which includes all registerd mutual funds filing with the Securities and Exchanges Commission (SEC). The third database I use for this study, Morningstar Direct, provides mutual fund managers' biographical information including educational background. On the holded company side, I obtain data from BoardEx of Management Diagnostic Limited, a researh company specialized in social network data on company officials in U.S. and European public and private companies and other types of organizations. BoardEx provide employment history and educational information of senior company officiers (such as Chief Executive Officier, Chief Financial Officier, Chief Technological Officier, Chief Operating Officier and Chairman) and board of directors. 
+My data on mutual fund holdings come from the Thomson Reuters CDA/Spectrum S12 database, which includes all registerd mutual funds filing with the Securities and Exchanges Commission (SEC). The third database I use for this study, Morningstar Direct, provides mutual fund managers' biographical information including educational background. On the holded company side, I obtain data from BoardEx of Management Diagnostic Limited, a researh company specialized in social networks data on company officials in U.S. and European public and private companies and other types of organizations. BoardEx provide employment history and educational information of senior company officiers (such as Chief Executive Officier, Chief Financial Officier, Chief Technological Officier, Chief Operating Officier and Chairman) and board of directors. 
 
 Following ~\cite{wermers2000mutual}, I merge the CRSP Survivorship Bias Free Mutual Fund database with the Thomsom Reuters CDA/Spectrum S12 database using the MFLINKS table. The focus of my analysis is on actively managed U.S. equity funds, with the investment objective of aggressive growth, growth, or growth and income in the Thomsom Reuters CDA/Spectrum dataset\footnote{These funds have Investment Objective Code (IOC) of 2,3,or 4.}. 
 I apply several filters to form my sample (following ~\cite{kacperczyk2006unobserved}). I remove passive index funds by manually searching through fund name, index fund indicator, and Lipper objective name. I only include comonon stock \footnote{Stocks with share code 10 or 11 in CRSP. } holdings of mutual funds. Education history of mutual fund managers from Morningstar is linked to the combined CRSP/Thomsom Reuters data by matching manager names. My final mutual fund sample includes surviorship-bias-free data on holdings and biographical information for 1,408 funds and 3,220 mutual fund managers and spans the period from 2006 to 2016 \footnote{A sanity check: The base sample of \cite{Cohen2008} includes surviorship-bias-free data on holdings and biographical information for 1,648 US actively managed equity funds and 2,501 portfolio managers between January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
@@ -179,7 +204,7 @@ Here's another appendix with an equation.
 Note that this is quite similar to Equation~\eqref{eq:eqA} in Appendix~\ref{sec:app1}.
 
 \clearpage
-
+\end{doublespace}
 % Bibliography.
 
 \begin{doublespacing}   % Double-space the bibliography
