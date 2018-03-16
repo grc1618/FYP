@@ -31,7 +31,7 @@ base
 sample
 of
 \cite
-{Cohen2008}
+{cohen2008small}
 includes
 surviorship-bias-free
 data
@@ -83,7 +83,7 @@ sanity
 check:
 In
 \cite
-{Cohen2008},
+{cohen2008small},
 the
 matched
 sample

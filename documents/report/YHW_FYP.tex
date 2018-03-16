@@ -1,7 +1,8 @@
 \documentclass[11pt]{article}
 
-% DEFAULT PACKAGE SETUP
+\usepackage{lipsum}
 
+% DEFAULT PACKAGE SETUP
 \usepackage{setspace,graphicx,epstopdf,amsmath,amsfonts,amssymb,amsthm,versionPO}
 \usepackage{marginnote,datetime,enumitem,subfigure,rotating,fancyvrb}
 \usepackage{hyperref,float}
@@ -71,7 +72,7 @@
 \newcommand{\argmax}{\mathop{\rm arg\,max}}
 \newcommand{\sign}{\mathop{\rm sign}}
 \newcommand{\defeq}{\stackrel{\rm def}{=}}
-
+\usepackage{bbold}
 \begin{document}
 
 \setlist{noitemsep}  % Reduce space between list items (itemize, enumerate, etc.)
@@ -103,6 +104,7 @@
 
 \section{Introduction}
 \begin{doublespace}
+%\lipsum[1-2]
 Social networks plays an important role in the financial market. A seminal paper by \cite{cohen2008small}
  uses social networks between mutual funds and their holding company to identity information transfer in security markets. They find that portfolio managers place larger bets on connected firms and this portfolio allocation behavior have significant impact on fund performance. 
 
@@ -120,47 +122,23 @@ Apart from not being able to find similar pattern of aggregate portfolio perform
 
 One possible explaination of the negative predicting effect of firm level social connection is company directors' slackness. Instead of a direct transfer from company officers to fund portfolio managers, a reverse rent extraction could exist between the two agents (company officers and fund managers). When a company becomes more socially connected, the managers of the company might simply rely on those social connections and reduce privately costly effort that improves firm performance. Social connection serves as a safety net against bad performance and firm manager's incentive to exert costly effort is reduced. Social connection is compared to an insurance mechanism that ensures slightly higher probability (compared with no social connection) of accessing the capital market. 
 
+The rest of the paper is organized as follows. Secion II gives a brief introduction of related literature. Section III describes the data and the sample. Section IV presents the main results and findings. Section V discusses robustness and future work directions. Section VI concludes. 
 
 \section{Literature Review}
 This paper contributes to several strands of the literature. Firstly, it is related to the analysis of social newtworks on economic outcomes. The importance of social newworks, often also referred to as social capital, have been drawing much attention among economists. There is a growing body of research documenting significant correlations between ``social capital'' variables and important outcome. \cite{bloom2012organization} document thta high social capital increases decentralized decision-making within firms. \cite{guiso2004role} show that trust, a measure of social capital, affects stock market participation and international trade. \cite{jackson2005economics} provide a survey on the economics of social networks. 
 
-There are contradicting views on the impact of social capital in the literature. Some scholars such as \cite{putnam1994making} argue that social connection within a group induces trusts and cooperative attitude, which helps better communication among individuals and thus reducing information transfer frictions. In contrast, other researchers like \cite{olson1982rise} suggest that socially conencted individuals tend to foster self-serving interest groups. Such socially connected groups creates informational barriers against outsiders. Cartels, for example, distort market efficiency and usually reduce social economic wellfare. My paper provide new empirical evidence on the two conflicting view.
+There are contradicting views on the impact of social capital in the literature. Some scholars such as \cite{putnam1994making} argue that social connection within a group induces trusts and cooperative attitude, which helps better communication among individuals and thus reducing information transfer frictions. In contrast, other researchers like \cite{olson1982rise} suggest that socially conencted individuals tend to foster self-serving interest groups. Such socially connected groups creates informational barriers against outsiders. Cartels, for example, distort market efficiency and usually reduce social economic wellfare. One of the key aspects underlying the two views come from information flow. A natural labatory to ask how information disseminates is the stock market. Information moves security prices. Welfare-increasing social connections reduces information transmission frictions and improves market efficiency. While self-serving interest among socially connected market participants raises the concern of impeding informtion distribution outside the socially connected group.
+My paper provide new empirical evidence on the two conflicting view.
 
 The finance literature also document the importance of social networks in mutual fund behavior. \cite{hong2005thy} show mutual fund managers in the same city hold similar portfolio due to word-of-mouth effect. \cite{kuhnen2005social} find cmutual fund manager connection with advisory firms is correlated with preferential contracting decision. 
 
 Secondly, this paper also links to the mutual fund literature. Social connection can be viewd as another channel to explore fund performance and fund manager abilities. \cite{chevalier1999some} uses mutual fund managers' biographical data such as Scholastic Aptitude Test (SAT) score to test fund performance. Similar to \cite{cohen2008small}, this paper explore social connections between mutual fund managers and holding company directors as measurable characteristic for mutual fund. 
 
-Thirdly, the empirical measure is related to a broad network sociology literature. For example, \cite{useem1984inner} uses corporate board linkages as a measure of personal network. This paper focuses on direct connections between company directors and mutual fund managers through same academic institutions. 
+Thirdly, the empirical measure is related to a broad network sociology literature. For example, \cite{useem1984inner} uses corporate board linkages as a measure of personal network. This paper focuses on direct connections between company directors and mutual fund managers through same academic institutions.
 
-Lastly, the paper could potentially contribute to a large literatue on firm manager with moral hazard.
+The empirical work on social capital has focused on two types of evidence. The first type of evidence is based on survey questions. Researchers asks respondents questions such as their perception on trusts. However, \cite{glaeser2000measuring} shows with laboratory experiments that this survey measure is not reliable. A second emprical approach to social capital investigages organization membership. This paper shared academic institution as proxy for social connection. 
 
-
-The empirical work on social capital has focused on two types of evidence. The first type of evidence is based on survey questions. Researchers asks respondents questions such as their perception on trusts. However, \cite{glaeser2000measuring} shows with laboratory experiments that this survey measure is not reliable.  A second emprical approach to social capital investigages organization membership.
-
-
-
-
-
-
-
-
-
-
-
-
-H 
-
-
-One of the key aspects underlying the two views come from information flow. A natural labatory to ask how information disseminates is the stock market. Information moves security prices. Welfare-increasing social connections reduces information transmission frictions and improves market efficiency. While self-serving interest among socially connected market participants raises the concern of impeding informtion distribution outside the socially connected group.
-
-
-
-
- 
-
-
-\cite{putnam1994making}
-
+Lastly, the paper could potentially contribute to a large literatue on firm manager with moral hazard. 
 
 
 
@@ -169,9 +147,132 @@ I collected data from four different sources. A standard database used in mutual
 My data on mutual fund holdings come from the Thomson Reuters CDA/Spectrum S12 database, which includes all registerd mutual funds filing with the Securities and Exchanges Commission (SEC). The third database I use for this study, Morningstar Direct, provides mutual fund managers' biographical information including educational background. On the holded company side, I obtain data from BoardEx of Management Diagnostic Limited, a researh company specialized in social networks data on company officials in U.S. and European public and private companies and other types of organizations. BoardEx provide employment history and educational information of senior company officiers (such as Chief Executive Officier, Chief Financial Officier, Chief Technological Officier, Chief Operating Officier and Chairman) and board of directors. 
 
 Following ~\cite{wermers2000mutual}, I merge the CRSP Survivorship Bias Free Mutual Fund database with the Thomsom Reuters CDA/Spectrum S12 database using the MFLINKS table. The focus of my analysis is on actively managed U.S. equity funds, with the investment objective of aggressive growth, growth, or growth and income in the Thomsom Reuters CDA/Spectrum dataset\footnote{These funds have Investment Objective Code (IOC) of 2,3,or 4.}. 
-I apply several filters to form my sample (following ~\cite{kacperczyk2006unobserved}). I remove passive index funds by manually searching through fund name, index fund indicator, and Lipper objective name. I only include comonon stock \footnote{Stocks with share code 10 or 11 in CRSP. } holdings of mutual funds. Education history of mutual fund managers from Morningstar is linked to the combined CRSP/Thomsom Reuters data by matching manager names. My final mutual fund sample includes surviorship-bias-free data on holdings and biographical information for 1,408 funds and 3,220 mutual fund managers and spans the period from 2006 to 2016 \footnote{A sanity check: The base sample of \cite{Cohen2008} includes surviorship-bias-free data on holdings and biographical information for 1,648 US actively managed equity funds and 2,501 portfolio managers between January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+I apply several filters to form my sample (following ~\cite{kacperczyk2006unobserved}). I remove passive index funds by manually searching through fund name, index fund indicator, and Lipper objective name. I only include comonon stock \footnote{Stocks with share code 10 or 11 in CRSP. } holdings of mutual funds. Education history of mutual fund managers from Morningstar is linked to the combined CRSP/Thomsom Reuters data by matching manager names. My final mutual fund sample includes surviorship-bias-free data on holdings and biographical information for 1,408 funds and 3,220 mutual fund managers and spans the period from 2006 to 2016 \footnote{A sanity check: The base sample of \cite{cohen2008small} includes surviorship-bias-free data on holdings and biographical information for 1,648 US actively managed equity funds and 2,501 portfolio managers between January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
 
-For companies in the mutual fund holding, I map the identities and educational background information of board members and senior directors from BoardEx by firm CUSIP identifier\footnote{BoardEx use ISIN, which is derived from CUSIP}. My final matched company data contains educational background on 52,583 directors for 6,257 stocks between January 2006 and December 2016\footnote{A sanity check: In \cite{Cohen2008}, the matched sample of combining company officials' biographical information to stock return data from CRSP includes educational background on 42,269 board members and 14,122 senior officials (56,391 combined senior directors) for 7,660 CRSP stocks betwen January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+For companies in the mutual fund holding, I map the identities and educational background information of board members and senior directors from BoardEx by firm CUSIP identifier\footnote{BoardEx use ISIN, which is derived from CUSIP}. My final matched company data contains educational background on 52,583 directors for 6,257 stocks between January 2006 and December 2016\footnote{A sanity check: In \cite{cohen2008small}, the matched sample of combining company officials' biographical information to stock return data from CRSP includes educational background on 42,269 board members and 14,122 senior officials (56,391 combined senior directors) for 7,660 CRSP stocks betwen January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+
+\subsection{Connection and Connected Holdings}
+The social networks examined in \cite{cohen2008small} paper are defined over educational institutions. They link each member of the social network by these insitutions. They match institutions and degrees on Morningstar and BoardEx and group degrees into six categories: (1) business school (Master of Business Administration, MBA), (2) medical school (MD), (3) general graduate (Master of Arts, MA or Master of Science, MS), (4) Doctor of Philosophy (PhD), (5) law school (JD), and (6) general undergraduate. 
+
+I follow their approach, and define social networks connection in a similar way. However due to data limitation I collaps and pool all six catagories and define a \emph{broad} connection dummy variable, which equals 1 if the mutual fund manager had a senior official and/or a board member of the firm was affiliated with the same academic institution. 
+
+With my connection dummy variable, I construct a measure that captures the level of connectedness for company $i$ at time $t$ , as follows:
+
+\begin{equation}
+ ConHold_{i,t} = \frac{\sum_{j=1}^{N_t}\mathbb{1}_{Connected} \times S_{i,j,t}} {TotShare_{i,t}}
+\label{eq:eq1}
+\end{equation}
+
+where $\mathbb{1}_{Connected}$ is a dummy variable that indicates whether company $i$ is connected to mutual fund $j$ at time $t$. $N_t$ is the total number of mutual fund managers at time $t$.  $S_{i,j,t}$ is the number of company $i$ 's shares held by mutual fund $j$ at time $t$. $TotShare_{i,t}$ is the total number of shares outstanding for company $i$ at time $t$. 
+
+\subsection{Summary Statistics}
+Table \ref{table:1} reports summary statistics for the matched compnay-mutual funds sample from January 2006 to December 2016.  
+
+  This table shows summary statistics as of January of each year of the sample of mutual funds and their common stock holdings between 2006 and 2016. I include in the sample of fund/portfolio managers actively-managed, domestic equity mutual funds from the merged Thomson Reuters - Moringstar data with the investment objective of aggressive growth, growth, or growth-and-income and non missing information on the portfolio manager's identity and educational background. The sample of stocks includes the funds' holdings in common stocks, with CRSP share codes 10 or 11, from the merged CRSP - BoardEx data with non missing information on the educational background of members of the board of directors and senior officers of the firm (CEO, CFO, or Chairman). Board members and senior officiers are combined and defined as directors.
+
+
+\begin{table}
+\caption{ \ \ : \large \bf Summary statistics: mutual funds and holdings}
+\vspace*{10mm}
+\begin{tabular}{lccccc}
+\multicolumn{6}{c}{Panel A: Time series} \\ \hline
+ & (1) & (2) & (3) & (4) & (5) \\
+VARIABLES & mean & median & min & max & sd \\ \hline
+ &  &  &  &  &  \\
+Number of funds per year & 343.6 & 341 & 193 & 465 & 90.6 \\
+Number of portfolio managers per year & 275 & 266 & 163 & 373 & 69.7 \\
+Number of firms per year & 5,385 & 5,439 & 4,650 & 6,156 & 459.1 \\
+Number of directors per year & 12,916 & 13,000 & 7,939 & 16,314 & 2,687 \\
+Number of academic institutions per year & 179.0 & 191 & 124 & 210 & 28.4 \\
+ &  &  &  &  &  \\ \hline
+\end{tabular}
+\\
+\vspace*{10mm}
+\\
+\begin{tabular}{lccccc}
+\multicolumn{6}{c}{Panel B: Pooled firm-year and fund-year} \\ \hline
+ & (1) & (2) & (3) & (4) & (5) \\
+VARIABLES & mean & median & min & max & sd \\ \hline
+ &  &  &  &  &  \\
+Number of academic institutions per firm & 32.8 & 23 & 1 & 140 & 29.2 \\
+Number of directors per academic institution & 2,208 & 1,686 & 1 & 6,155 & 1,969 \\
+Number of academic institution per fund & 2.4 & 2 & 1 & 6 & 1.1 \\
+Number of directors per fund & 80.1 & 36 & 1 & 633 & 117.6 \\
+ &  &  &  &  &  \\ \hline
+\end{tabular}
+\vspace*{10mm}
+\label{table:1}
+\end{table}
+
+Table \ref{table:2} list the academic institutions that are most connected to both publicly traded firms and mutual funds. Following \cite{cohen2008small}, a connection to a university is defined as follows: (1) for a given company, any of the senior officers (CEO, CFO, or chairman) having attended the institution and received a degree; and (2) for a given fund, any of the portfolio managers having attended the institution for a degree. As a result, a given company (mutual fund) can be connected to multiple academic institutions. 
+
+\begin{table}
+\centering
+\caption{ \ \ : \large \bf Summary statistics: academic institutions}
+\vspace*{5mm}
+\caption*{Firm's directors}
+\begin{tabular}{lllc}
+  &                                                                      &  &                          \\ 
+\hline \\
+  &                                                                      &  & Average number of firms  \\ 
+\\
+\cline{4-4}
+\\
+1 & Harvard University                                                   &  &  894      \\
+2 & \begin{tabular}[c]{@{}l@{}}University of Pennsylvania\\\end{tabular} &  &  698      \\ 
+3 & \begin{tabular}[c]{@{}l@{}}Columbia University\\\end{tabular}        &  &  582      \\
+4 & \begin{tabular}[c]{@{}l@{}}University of Chicago\\\end{tabular}      &  &  540      \\
+5 & Stanford University                                                  &  &  496      \\
+\\
+\hline
+\end{tabular}
+\\
+\vspace*{20mm}
+
+\caption*{ Portfolio managers}
+\begin{tabular}{lllc}
+  &                                                                      &  &                          \\ 
+\hline \\
+  &                                                                      &  & Average number of managers  \\ 
+\\
+\cline{4-4}
+\\
+1 & Harvard University                                                   &  &  129      \\
+2 & \begin{tabular}[c]{@{}l@{}}Columbia University\\\end{tabular} &  & 93      \\ 
+3 & \begin{tabular}[c]{@{}l@{}}University of Pennsylvania\\\end{tabular}        &  &   92      \\
+4 & \begin{tabular}[c]{@{}l@{}}University of Chicago\\\end{tabular}      &  &    89    \\
+5 & New York University                                                  &  &    88      \\
+\\
+\hline
+\end{tabular}
+\label{table:2}
+\end{table}
+
+
+We see from Table \ref{table:2} that the uinversity most connected to both publicly traded firms and U.S. equity mutual funds is Harvard. Harvard is connected to approximately 10 percent of U.S. publicly traded firms. These connections are not merely to mid-level managers, but to senior officers in the firm. Similarly, Harvard is also most connected to active equity mutual funds in the United States. My results are very similar to \cite{cohen2008small} 's. The top five most connected five uniersities are the same, either for publicly traded firms or for U.S. active equity mutual fund, in both of our samples. Interestingly, the relative ranking has shifted. On the firms' side, the most salient differece is that Stanford University dropped from second place to the fifth place. All the remaining 
+schools keep the same relative ranking as they were a decade ago. While on the mutual fund side, Columbia University has the biggest jump, from a ranking of four to the runner-up. And the rest of the schools' relative rankings also remain unchanged. 
+Recall that the sample period of \cite{cohen2008small} is from January 1990 to December 2006, and my sample is constructed from January 2006 to December 2016. The ranking shift might also indicate changes in career choice among various school graduates and instutional culture across different universities. But this is not the main focus of this paper. 
+
+\section{Results}
+\subsection{Holdings of Connected Securities}
+This section mainly follows \cite{cohen2008small} 's procedure to examine mutual fund managers' portfolio choices. Equity portfolio managers may tend to overweight stocks in their social networks, probably as a result of familiarity bias (\cite{huberman2001familiarity}). Those fund manager could also overweight connected stocks because of they might exert less effort in obtaining firm information thanks to social connections with firm's senior officials. The first step of analysis is thus to empirically support the hypothesis that fund manager do place larger portfolio weights on socially connected firms. 
+
+Table 3 sho
+
+
+
+
+
+\subsection{Returns of Aggregate Connected Portfolio}
+
+\subsection{Individual Stock Return Prediction}
+
+
+
+\section{Robustness and Future Work}
+To start with, my definiation of connectedness is related to the boradest catagorization proposed by \cite{cohen2008small}. However, \cite{cohen2008small} has more refined measures to define ``connected'' holdings. In their paper, they define four types of connections between the portfolio manager and the firm, based on whether the portfolio manager and a senior official of the firm (CEO, CFO, or chairman) attended the same school (CONNECTED1) and received the same degree (CONNECTED2), attend the same school at the same time (CONNECTED3), and attended the same school at the same time and received the same degree (CONNECTED4). These measures of connectedness are defined in an increasing degree of strength of the link, with CONNECTED1 being the weakest type and CONNECTED4 as the strongest type. In future work, I would like to use those four definition of connectedness to define various \emph{CONNECT} dummy variables, and apply equation (\ref{eq:eq1})to construct my meausre of individual stock's social connection. 
+
+
 
 
 \newpage

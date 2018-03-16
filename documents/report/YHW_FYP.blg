@@ -3,11 +3,10 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: YHW_FYP.aux
 The style file: jf.bst
 Database file #1: MF.bib
-Warning--I didn't find a database entry for "Cohen2008"
 Warning--empty journal in jackson2005economics
 You've used 13 entries,
             2716 wiz_defined-function locations,
-            690 strings with 6643 characters,
+            688 strings with 6625 characters,
 and the built_in function-call counts, 5641 in all, are:
 = -- 506
 > -- 295
@@ -46,4 +45,4 @@ warning$ -- 1
 while$ -- 55
 width$ -- 0
 write$ -- 142
-(There were 2 warnings)
+(There was 1 warning)
