@@ -1,0 +1,13 @@
+Panel A: Time Series			
+	(1)	(2)	(3)
+VARIABLES	dw1	dw1	dw2
+			
+conn	11.92***	11.92***	0.00364***
+	(1.704)	(0.591)	(0.000130)
+Constant	2.852***	2.852*	0.00688***
+	(0.531)	(1.672)	(4.04e-05)
+			
+Observations	915,590	915,590	915,616
+R-squared	0.001	0.001	0.013
+Robust standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

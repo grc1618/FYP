@@ -1,0 +1,10 @@
+Panel A: Time Series						
+		(1)	(2)	(3)	(4)	(5)
+VARIABLES	LABELS	mean	p50	min	max	sd
+						
+fund	Number of funds per year	320.7	323	180	435	85.63
+mfmg	Number of portfolio managers per year	254.5	252	152	346	65.08
+firm	Number of academic institutions per year	2,144	2,157	1,901	2,388	139.8
+director	director	12,910	13,000	7,939	16,314	2,691
+school	school	146.9	152	110	177	22.57
+						

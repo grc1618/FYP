@@ -80,10 +80,9 @@
 % Use endnotes instead of footnotes - redefine \footnote command
 \renewcommand{\footnote}{\endnote}  % Endnotes instead of footnotes
 
-\author{RICHARD STANTON\thanks{\rm Stanton is with the Haas
-      School of Business, U.C. Berkeley. Acknowledgments \ldots}}
+\author{Gigi Wang\thanks{Email: ywang19@gsb.columbia.com}}
 
-\title{\Large \bf A Sample JF Paper}
+\title{\Large \bf Socially Connected Firm Return}
 
 \date{}              % No date for final submission
 
@@ -97,7 +96,7 @@
 \centerline{\bf ABSTRACT}
 
 \begin{doublespace}  % Double-space the abstract and don't indent it
-  \noindent There's nothing very interesting here, but the format (achieved using the file \texttt{jf.sty}) makes it suitable for publication in the \emph{Journal of Finance} even if the content doesn't. Here's a nice, informative, double-spaced abstract.
+  \noindent blab lab lab lab lbblab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab lblab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab 
 \end{doublespace}
 
 \medskip
@@ -109,43 +108,53 @@
 
 \noindent Note that the JF doesn't want the first section to be titled, and the text here is not indented.\footnote{Here's a sample footnote (endnote).} Let's put in some sections and subsections to see how they get formatted.
 
-\section{The Model} \label{sec:Model}
+\section{Introduction}
+Social networks plays an important role in the financial market. A seminal paper by \cite{cohen2008small}
+ uses social networks between mutual funds and their holding company to identity information transfer in security markets. They find that portfolio managers place larger bets on connected firms and this portfolio allocation behavior have significant impact on fund performance. 
 
-There's not actually a model here as it's not really a paper, but this is about where a model might go. Note that the first sentence of this section is indented (as required by the JF) using the \texttt{indentfirst} package.
+\cite{cohen2008small} asks how information disseminates through agents in financial markets and into security prices. The information flow could move though social networks in multiple ways. First
 
-\subsection{A Subsection}
 
-Note that subsections in JF are just labeled with letters.  When referring to them in the text, you need to add the section number back, e.g., Section~\ref{sec:subsec} or~\ref{sec:subsub}. This is taken care of in \texttt{jf.sty}. Let's also add some parenthetical citations (see~\cite{Stanton:95}, \cite{CarpenterStantonWallace:12}, \cite{Campbell:03}). 
 
-To justify adding a subsection here, from now on, we'll assume
-\begin{condition}\label{cond:rates}
-$0 <  \hat{\mu} < \gamma\sigma^2$.
-\vspace{3mm}
-\end{condition}
-This condition might be useful if there was a model. 
+The impact of social capital on economic outcomes have been drawing much attention among economists. There is a growing body of research documenting significant correlations between ``social capital'' variables and important outcome. 
 
-\subsection{Another Subsection, With a Figure}
-\label{sec:subsec}
 
-Figures get put at the end, with a note marking where they should go in the text, like this:
 
-\bigskip
-\centerline{\bf [Place Figure~\ref{fig:0} about here]}
-\bigskip
 
-\subsubsection{A Subsubsection with a Proposition}
-\label{sec:subsub}
 
-Let's put a proposition here.
-\begin{proposition} \label{prop:3}
-If Condition~\ref{cond:rates} is satisfied,  a solution to the central
-planner's problem, $V(B,D,t) \in C^2\left( {\mathbb R}_{+}^2 \times
-  [0,T] \right)$, with control $a:[0,1]\times[0,T]\rightarrow [-\lambda,\lambda]$
- if  $\gamma>1$ is
-\begin{equation} \label{eq:valuea}
-V(B,D,t) =  - \frac{(B+D)^{1-\gamma}}{1-\gamma}   w\left(\frac{B}{B+D},t\right).
-\end{equation}
-\end{proposition}
+However, there are contradicting views on the impact of social capital in the literature. Some scholars argue that socially connection within a group induces trusts and cooperative attitude.  Such social connection helps better communication among individuals and thus reducing information transfer frictions. In contrast, other researchers suggest that socially conencted individuals tend to foster self-serving interest groups. Such socially connected groups creates informational barriers against outsiders. Cartels, for example, distort market efficiency and usually reduce social economic wellfare. In this paper, I try to provide new empirical evidence on the two conflicting view. 
+
+
+One of the key aspects underlying the two views come from information flow. A natural labatory to ask how information disseminates is the stock market. Information moves security prices. Welfare-increasing social connections reduces information transmission frictions and improves market efficiency. While self-serving interest among socially connected market participants raises the concern of impeding informtion distribution outside the socially connected group.
+
+
+
+
+The empirical work on social capital has focused on two types of evidence. The first type of evidence is based on survey questions. Researchers asks respondents questions such as their perception on trusts. However, \cite{glaeser2000measuring} shows with laboratory experiments that this survey measure is not reliable.  A second emprical approach to social capital investigages organization membership. 
+
+
+\cite{putnam1994making}
+
+
+\subsection{Literature Review}
+blab lab lab lab lblab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab 
+
+\section{Data}
+I collected data from four different sources. A standard database used in mutual fund research literature is the CRSP Survivorship Bias Free Mutual Fund Database. The CRSP Mutual Fund Database includes mainly fund characteristics, such as fund returns, total net assets, expense ratios, investment objectives, fund manager names, and etc. One constraint imposed on researchers using CRSP is that it does not include detailed information about fund holdings. 
+My data on mutual fund holdings come from the Thomson Reuters CDA/Spectrum S12 database, which includes all registerd mutual funds filing with the Securities and Exchanges Commission (SEC). The third database I use for this study, Morningstar Direct, provides mutual fund managers' biographical information including educational background. On the holded company side, I obtain data from BoardEx of Management Diagnostic Limited, a researh company specialized in social network data on company officials in U.S. and European public and private companies and other types of organizations. BoardEx provide employment history and educational information of senior company officiers (such as Chief Executive Officier, Chief Financial Officier, Chief Technological Officier, Chief Operating Officier and Chairman) and board of directors. 
+
+Following ~\cite{wermers2000mutual}, I merge the CRSP Survivorship Bias Free Mutual Fund database with the Thomsom Reuters CDA/Spectrum S12 database using the MFLINKS table. The focus of my analysis is on actively managed U.S. equity funds, with the investment objective of aggressive growth, growth, or growth and income in the Thomsom Reuters CDA/Spectrum dataset\footnote{These funds have Investment Objective Code (IOC) of 2,3,or 4.}. 
+I apply several filters to form my sample (following ~\cite{kacperczyk2006unobserved}). I remove passive index funds by manually searching through fund name, index fund indicator, and Lipper objective name. I only include comonon stock \footnote{Stocks with share code 10 or 11 in CRSP. } holdings of mutual funds. Education history of mutual fund managers from Morningstar is linked to the combined CRSP/Thomsom Reuters data by matching manager names. My final mutual fund sample includes surviorship-bias-free data on holdings and biographical information for 1,408 funds and 3,220 mutual fund managers and spans the period from 2006 to 2016 \footnote{A sanity check: The base sample of \cite{Cohen2008} includes surviorship-bias-free data on holdings and biographical information for 1,648 US actively managed equity funds and 2,501 portfolio managers between January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+
+For companies in the mutual fund holding, I map the identities and educational background information of board members and senior directors from BoardEx by firm CUSIP identifier\footnote{BoardEx use ISIN, which is derived from CUSIP}. My final matched company data contains educational background on 52,583 directors for 6,257 stocks between January 2006 and December 2016\footnote{A sanity check: In \cite{Cohen2008}, the matched sample of combining company officials' biographical information to stock return data from CRSP includes educational background on 42,269 board members and 14,122 senior officials (56,391 combined senior directors) for 7,660 CRSP stocks betwen January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+
+
+\newpage
+complication:
+TR holding data:
+1. matching (with mflink2) using fdate, fundno
+2. prc correspond to fdate (quarter-end) don't use this! since fdate is legacy date no meaning!!
+3. shares correspond to rdate (actual (effective) date of the holdings)
 
 \clearpage
 
@@ -175,7 +184,7 @@ Note that this is quite similar to Equation~\eqref{eq:eqA} in Appendix~\ref{sec:
 
 \begin{doublespacing}   % Double-space the bibliography
 \bibliographystyle{jf}
-\bibliography{RHSbib}
+\bibliography{MF}
 \end{doublespacing}
 
 \clearpage
