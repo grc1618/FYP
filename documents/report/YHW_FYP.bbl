@@ -1,10 +1,18 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{23}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[Aboody and Lev(2000)]{aboody2000information}
+Aboody, David, and Baruch Lev, 2000, Information asymmetry, r\&d, and insider
+  gains, {\em The journal of Finance\/} 55, 2747--2766.
 
 \bibitem[Bloom et~al.(2012)Bloom, Sadun, and Van~Reenen]{bloom2012organization}
 Bloom, Nicholas, Raffaella Sadun, and John Van~Reenen, 2012, The organization
   of firms across countries, {\em The quarterly journal of economics\/} 127,
   1663--1705.
+
+\bibitem[Bondt and Thaler(1985)]{bondt1985does}
+Bondt, Werner~FM, and Richard Thaler, 1985, Does the stock market overreact?,
+  {\em The Journal of finance\/} 40, 793--805.
 
 \bibitem[Chevalier and Ellison(1999)]{chevalier1999some}
 Chevalier, Judith, and Glenn Ellison, 1999, Are some mutual fund managers
@@ -16,6 +24,14 @@ Cohen, Lauren, Andrea Frazzini, and Christopher Malloy, 2008, The small world
   of investing: Board connections and mutual fund returns, {\em Journal of
   Political Economy\/} 116, 951--979.
 
+\bibitem[Cohen et~al.(2012)Cohen, Malloy, and Pomorski]{cohen2012decoding}
+Cohen, Lauren, Christopher Malloy, and Lukasz Pomorski, 2012, Decoding inside
+  information, {\em The Journal of Finance\/} 67, 1009--1043.
+
+\bibitem[Fama and French(1992)]{fama1992cross}
+Fama, Eugene~F, and Kenneth~R French, 1992, The cross-section of expected stock
+  returns, {\em the Journal of Finance\/} 47, 427--465.
+
 \bibitem[Fama and French(1993)]{fama1993common}
 Fama, Eugene~F, and Kenneth~R French, 1993, Common risk factors in the returns
   on stocks and bonds, {\em Journal of financial economics\/} 33, 3--56.
@@ -23,6 +39,10 @@ Fama, Eugene~F, and Kenneth~R French, 1993, Common risk factors in the returns
 \bibitem[Fama and French(2016)]{fama2016dissecting}
 Fama, Eugene~F, and Kenneth~R French, 2016, Dissecting anomalies with a
   five-factor model, {\em The Review of Financial Studies\/} 29, 69--103.
+
+\bibitem[Fama and MacBeth(1973)]{fama1973risk}
+Fama, Eugene~F, and James~D MacBeth, 1973, Risk, return, and equilibrium:
+  Empirical tests, {\em Journal of political economy\/} 81, 607--636.
 
 \bibitem[Glaeser et~al.(2000)Glaeser, Laibson, Scheinkman, and
   Soutter]{glaeser2000measuring}
@@ -46,6 +66,16 @@ Huberman, Gur, 2001, Familiarity breeds investment, {\em The Review of
 
 \bibitem[Jackson(2005)]{jackson2005economics}
 Jackson, Matthew~O, 2005, The economics of social networks .
+
+\bibitem[Jagolinzer et~al.(2017)Jagolinzer, Larcker, Ormazabal, and
+  Taylor]{jagolinzer2017political}
+Jagolinzer, Alan~D, David~F Larcker, Gaizka Ormazabal, and Daniel~J Taylor,
+  2017, Political connections and the informativeness of insider trades .
+
+\bibitem[Jegadeesh and Titman(1993)]{jegadeesh1993returns}
+Jegadeesh, Narasimhan, and Sheridan Titman, 1993, Returns to buying winners and
+  selling losers: Implications for stock market efficiency, {\em The Journal of
+  finance\/} 48, 65--91.
 
 \bibitem[Kacperczyk et~al.(2006)Kacperczyk, Sialm, and
   Zheng]{kacperczyk2006unobserved}
