@@ -170,6 +170,18 @@ With my connection dummy variable, I construct a measure that captures the level
 
 where $\mathbb{1}_{Connected}$ is a dummy variable that indicates whether company $i$ is connected to mutual fund $j$ at time $t$. $N_t$ is the total number of mutual fund managers at time $t$.  $S_{i,j,t}$ is the number of company $i$ 's shares held by mutual fund $j$ at time $t$. $TotShare_{i,t}$ is the total number of shares outstanding for company $i$ at time $t$. 
 
+Based on the ConHold measure defined in \ref{eq:eq1}, I further define the difference in connected holding, as follows:
+\begin{equation} \label{eq:eq2}
+\begin{split}
+ \Delta ConHold_{i,t} & = ConHold_{i,t} - ConHold_{i,t-1} \\
+ & = \frac{\sum_{j=1}^{N_t}\mathbb{1}_{Connected} \times S_{i,j,t}} {TotShare_{i,t}}
+ - \frac{\sum_{j=1}^{N_{t-1}}\mathbb{1}_{Connected} \times S_{i,j,t-1}} {TotShare_{i,t-1}}
+\end{split}
+\end{equation}
+
+$\Delta ConHold_{i,t}$ measures the changes in connected holdings for a particular stock $i$ from time $t-1$ to time $t$.
+
+
 \subsection{Summary Statistics}
 Table \ref{table:1} reports summary statistics for the matched compnay-mutual funds sample from January 2006 to December 2016.  
 
@@ -360,7 +372,7 @@ statistical significance is indicated in bold.}
 \label{table:5}
 \\
 \vspace*{5mm}
-\caption*{This table shows calendar time portfolio returns. At the beginning of every calendar quarter, stocks in each mutual fund portfolio (based on the most recent SEC filing) are assigned to one of two portfolios (connected and nonconnected). Connected companies are defined as firms for which at least a senior official (CEO, CFO, or chairman) received any degree from the same institution as the fund’s portfolio manager (CONNECTED1).I compute monthly returns on connected and nonconnected holdings between reports based on the assumption that funds did not change their holdings between reports. Portfolios are rebalanced every calendar quarter, and within a given fund portfolio, stocks are value weighted by the fund’s dollar holdings. Finally, we compute value-weighted calendar time portfolios by averaging across funds, weighting individual fund portfolios by the fund’s total net asset value at the end of the previous quarter. This table includes all available stocks and all available funds. I report average raw returns, Fama French three factor alpha, and Fama French five factor alphas in the period 2006-2016. Alpha is the intercept on a regression of monthly portfolio excess returns. This table reports returns on connected stocks held by the mutual fund managers compared to their nonconnected holdings. Long-short is the annual average return of a zero cost portfolio that holds the portfolio of connected stocks and sells short the portfolio of nonconnected stocks. t-statistics are shown below the coefficient estimates.}
+\caption*{This table shows calendar time portfolio returns. At the beginning of every calendar quarter, stocks in each mutual fund portfolio (based on the most recent SEC filing) are assigned to one of two portfolios (connected and nonconnected). Connected companies are defined as firms for which at least a senior official (CEO, CFO, or chairman) received any degree from the same institution as the fund’s portfolio manager.I compute monthly returns on connected and nonconnected holdings between reports based on the assumption that funds did not change their holdings between reports. Portfolios are rebalanced every calendar quarter, and within a given fund portfolio, stocks are value weighted by the fund’s dollar holdings. Finally, we compute value-weighted calendar time portfolios by averaging across funds, weighting individual fund portfolios by the fund’s total net asset value at the end of the previous quarter. This table includes all available stocks and all available funds. I report average raw returns, Fama French three factor alpha, and Fama French five factor alphas in the period 2006-2016. Alpha is the intercept on a regression of monthly portfolio excess returns. This table reports returns on connected stocks held by the mutual fund managers compared to their nonconnected holdings. Long-short is the annual average return of a zero cost portfolio that holds the portfolio of connected stocks and sells short the portfolio of nonconnected stocks. t-statistics are shown below the coefficient estimates.}
 \end{table}
 
 
@@ -370,6 +382,60 @@ So far, I have shown from the mutual fund perspective that social networks betwe
 
 To further test the information flow mechnism, I propse a new set of empirical study. Instead of looking at aggregate connected portfolio return, I construct a measure to capture firm-level social connection level. This measure is defined in \ref{eq:eq1}. Intuitively, this $ConHold_{i,t}$ variable indicates the percentage shares held by across all connected mutual funds versus the total shares outstanding. Alternatively, it also represents the dollar amount of the stocks held by all connected mutual funds normalized by its total market capitalization. Since stock price appears on both the nominator and the denominator, the second representation reduces to the original expression as shown in equation \ref{eq:eq1}.
 
+Next, I perform a more standard asset pricing method by sorting on the ConHold measure defined in \ref{eq:eq1}. At the end of each quarter t stocks are allocated into deciles based on quarter-end ConHold and 
+portfolios are formed from current quarter t to the next quarter t+1. 
+The portfolios are held for one quarter and then rebalanced. In addition to the ten sorted portfolios, I also experiment with sorting into three portfolios and sorting into two portfolios. 
+
+After forming the portfolios, I obtain a time series of returns to each portfolios from January 2006 to December 2016. I report the average annualized raw returns to the ConHold-sorted portlios in Table \ref{table:sort1}. 
+
+For the decile sort, the low ConHold firms earn average EW porfolio annual returns of 9.47 \% and the high ConHold firms earn average EW portfolio annual returns of 7.11 \% , with a spread of 2.36 \% (t-statistics = 2.17). For the tertile sort, the low ConHold firms earn average EW porfolio annual returns of 9.13 \% and the high ConHold firms earn average EW portfolio annual returns of 7.55 \%, with a spread of 1.58\% (t-statistics = 1.26). For the median sort, the low ConHold firms earn average EW porfolio annual returns of 8.70 \% and the high ConHold firms earn average EW portfolio annual returns of 7.74 \%, with a spread of 0.95\% (t-statistics = 1.42). 
+
+The results are similar if we look at the value weighted portfolios. For the decile sort, the low ConHold firms earn average EW porfolio annual returns of 9.92 \% and the high ConHold firms earn average EW portfolio annual returns of 6.81 \% , with a spread of 3.11 \% (t-statistics = 2.52). For the tertile sort, the low ConHold firms earn average EW porfolio annual returns of 9.44 \% and the high ConHold firms earn average EW portfolio annual returns of 7.67 \%, with a spread of 1.77\% (t-statistics = 1.91). For the median sort, the low ConHold firms earn average EW porfolio annual returns of 8.96 \% and the high ConHold firms earn average EW portfolio annual returns of 7.49 \%, with a spread of 1.47\% (t-statistics = 1.23). 
+
+\begin{table} 
+\centering
+\caption{ \ \ : \large \bf  ConHold sorted portfolio returns}
+\vspace*{5mm}
+\caption*{ Panel A: Equal-Weighted Portfolio Average}
+\begin{tabular}{lcccc} 
+\hline
+\begin{tabular}[c]{@{}l@{}} \end{tabular} & Low& High & Spread & t(spread)    \\
+\begin{tabular}[c]{@{}l@{}} \end{tabular} Decile Sort (10) & 9.47 & 7.11 & 2.36 & 2.17    \\
+
+\begin{tabular}[c]{@{}l@{}} \end{tabular} Tertile Sort (3)& 9.13 & 7.55 & 1.58 & 1.26    \\
+
+\begin{tabular}[c]{@{}l@{}} \end{tabular} Median Sort (2) & 8.70 & 7.74 & 0.95 & 1.42    \\
+
+\hline
+\end{tabular}
+\\
+\vspace*{10mm}
+\caption*{ Panel B: Value-Weighted Portfolio Average}
+\begin{tabular}{lcccc} 
+\hline
+\begin{tabular}[c]{@{}l@{}} \end{tabular} & Low& High & Spread & t(spread)    \\
+\begin{tabular}[c]{@{}l@{}} \end{tabular} Decile Sort (10) & 9.92 & 6.81 & 3.11 & 2.52    \\
+
+\begin{tabular}[c]{@{}l@{}} \end{tabular} Tertile Sort (3)& 9.44 & 7.67 & 1.77 & 1.91    \\
+
+\begin{tabular}[c]{@{}l@{}} \end{tabular} Median Sort (2) & 8.96 & 7.49 & 1.47 & 1.23    \\
+
+\hline
+\end{tabular}
+\label{table:sort1}
+\\
+\vspace*{5mm}
+\caption*{At the end of each quarter t over 2006 - 2016, stocks are allocated into deciles (10 portfolios), or tertiles (3 portfolios), or medians (2 portfolios) based on ConHold defined as the number of connected holdings as a percentage of total shares outstanding, where connected companies are defined as firms for which at least a senior official (CEO, CFO, or chairman) received any degree from the same institution as the fund’s portfolio manager. 
+ Equal and value-weighted portfolios are formed based on quarter end t ConHold cutoff. The portfolios are held for one quarter, from quarter end t to quarter end t+1, and then rebalanced. Annuallized portfolio raw return statistics are reported. Panel A reports average annual raw returns to equal-weighted portfolios. Panel B reports average annual raw returns to value-weighted portfolios.
+}
+\end{table}
+
+
+
+
+
+
+In Table I I report formation period (that is, for the year prior to and including June of year t) summary statistics for various firm characteristics of the ten portfolios. The appendix provides exact formulas for all of the variables used in our tests.
 
 
 
