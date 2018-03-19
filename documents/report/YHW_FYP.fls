@@ -311,7 +311,6 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/bbold/bbold10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/bbold/bbold8.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/bbold/bbold6.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT YHW_FYP.bbl
 INPUT YHW_FYP.bbl
 INPUT YHW_FYP.ent
@@ -335,4 +334,3 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb

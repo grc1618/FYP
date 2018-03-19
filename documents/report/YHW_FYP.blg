@@ -4,45 +4,45 @@ The top-level auxiliary file: YHW_FYP.aux
 The style file: jf.bst
 Database file #1: MF.bib
 Warning--empty journal in jackson2005economics
-You've used 13 entries,
+You've used 16 entries,
             2716 wiz_defined-function locations,
-            688 strings with 6625 characters,
-and the built_in function-call counts, 5641 in all, are:
-= -- 506
-> -- 295
-< -- 7
-+ -- 112
-- -- 87
-* -- 516
-:= -- 1039
-add.period$ -- 13
-call.type$ -- 13
-change.case$ -- 93
-chr.to.int$ -- 13
-cite$ -- 14
-duplicate$ -- 227
-empty$ -- 382
-format.name$ -- 102
-if$ -- 1062
+            707 strings with 6933 characters,
+and the built_in function-call counts, 6917 in all, are:
+= -- 632
+> -- 348
+< -- 10
++ -- 130
+- -- 102
+* -- 632
+:= -- 1269
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 113
+chr.to.int$ -- 16
+cite$ -- 17
+duplicate$ -- 281
+empty$ -- 471
+format.name$ -- 124
+if$ -- 1306
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 14
-newline$ -- 43
-num.names$ -- 52
-pop$ -- 71
+missing$ -- 17
+newline$ -- 52
+num.names$ -- 64
+pop$ -- 82
 preamble$ -- 1
-purify$ -- 81
+purify$ -- 98
 quote$ -- 0
-skip$ -- 165
+skip$ -- 204
 stack$ -- 0
-substring$ -- 379
-swap$ -- 42
+substring$ -- 475
+swap$ -- 54
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 111
+type$ -- 138
 warning$ -- 1
-while$ -- 55
+while$ -- 70
 width$ -- 0
-write$ -- 142
+write$ -- 175
 (There was 1 warning)

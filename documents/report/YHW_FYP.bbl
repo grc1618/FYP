@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{16}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Bloom et~al.(2012)Bloom, Sadun, and Van~Reenen]{bloom2012organization}
@@ -16,6 +16,14 @@ Cohen, Lauren, Andrea Frazzini, and Christopher Malloy, 2008, The small world
   of investing: Board connections and mutual fund returns, {\em Journal of
   Political Economy\/} 116, 951--979.
 
+\bibitem[Fama and French(1993)]{fama1993common}
+Fama, Eugene~F, and Kenneth~R French, 1993, Common risk factors in the returns
+  on stocks and bonds, {\em Journal of financial economics\/} 33, 3--56.
+
+\bibitem[Fama and French(2016)]{fama2016dissecting}
+Fama, Eugene~F, and Kenneth~R French, 2016, Dissecting anomalies with a
+  five-factor model, {\em The Review of Financial Studies\/} 29, 69--103.
+
 \bibitem[Glaeser et~al.(2000)Glaeser, Laibson, Scheinkman, and
   Soutter]{glaeser2000measuring}
 Glaeser, Edward~L, David~I Laibson, Jose~A Scheinkman, and Christine~L Soutter,
@@ -31,6 +39,10 @@ Guiso, Luigi, Paola Sapienza, and Luigi Zingales, 2004, The role of social
 Hong, Harrison, Jeffrey~D Kubik, and Jeremy~C Stein, 2005, Thy neighbor's
   portfolio: Word-of-mouth effects in the holdings and trades of money
   managers, {\em The Journal of Finance\/} 60, 2801--2824.
+
+\bibitem[Huberman(2001)]{huberman2001familiarity}
+Huberman, Gur, 2001, Familiarity breeds investment, {\em The Review of
+  Financial Studies\/} 14, 659--680.
 
 \bibitem[Jackson(2005)]{jackson2005economics}
 Jackson, Matthew~O, 2005, The economics of social networks .

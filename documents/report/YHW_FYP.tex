@@ -96,7 +96,8 @@
 \centerline{\bf ABSTRACT}
 
 \begin{doublespace}  % Double-space the abstract and don't indent it
-  \noindent blab lab lab lab lbblab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab lblab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab blab lab lab lab 
+  \noindent 
+  \lipsum [1-1] 
 \end{doublespace}
 
 \medskip
@@ -143,13 +144,17 @@ Lastly, the paper could potentially contribute to a large literatue on firm mana
 
 
 \section{Data}
-I collected data from four different sources. A standard database used in mutual fund research literature is the CRSP Survivorship Bias Free Mutual Fund Database. The CRSP Mutual Fund Database includes mainly fund characteristics, such as fund returns, total net assets, expense ratios, investment objectives, fund manager names, and etc. One constraint imposed on researchers using CRSP is that it does not include detailed information about fund holdings. 
-My data on mutual fund holdings come from the Thomson Reuters CDA/Spectrum S12 database, which includes all registerd mutual funds filing with the Securities and Exchanges Commission (SEC). The third database I use for this study, Morningstar Direct, provides mutual fund managers' biographical information including educational background. On the holded company side, I obtain data from BoardEx of Management Diagnostic Limited, a researh company specialized in social networks data on company officials in U.S. and European public and private companies and other types of organizations. BoardEx provide employment history and educational information of senior company officiers (such as Chief Executive Officier, Chief Financial Officier, Chief Technological Officier, Chief Operating Officier and Chairman) and board of directors. 
+I collected data from four different sources. First, a standard database used in mutual fund research literature is the CRSP Survivorship Bias Free Mutual Fund Database. The CRSP Mutual Fund Database includes mainly fund characteristics, such as fund returns, total net assets, expense ratios, investment objectives, fund manager names, and etc. One constraint imposed on researchers using CRSP is that it does not include detailed information about fund holdings. 
+Second, my data on mutual fund holdings come from the Thomson Reuters CDA/Spectrum S12 database, which includes all registerd mutual funds filing with the Securities and Exchanges Commission (SEC). The third database I use for this study, Morningstar Direct, provides mutual fund managers' biographical information including educational background. Fouth, on the holded company side, I obtain data from BoardEx of Management Diagnostic Limited, a researh company specialized in social networks data on company officials in U.S. and European public and private companies and other types of organizations. BoardEx provide employment history and educational information of senior company officiers (such as Chief Executive Officier, Chief Financial Officier, Chief Technological Officier, Chief Operating Officier and Chairman) and board of directors. 
 
-Following ~\cite{wermers2000mutual}, I merge the CRSP Survivorship Bias Free Mutual Fund database with the Thomsom Reuters CDA/Spectrum S12 database using the MFLINKS table. The focus of my analysis is on actively managed U.S. equity funds, with the investment objective of aggressive growth, growth, or growth and income in the Thomsom Reuters CDA/Spectrum dataset\footnote{These funds have Investment Objective Code (IOC) of 2,3,or 4.}. 
-I apply several filters to form my sample (following ~\cite{kacperczyk2006unobserved}). I remove passive index funds by manually searching through fund name, index fund indicator, and Lipper objective name. I only include comonon stock \footnote{Stocks with share code 10 or 11 in CRSP. } holdings of mutual funds. Education history of mutual fund managers from Morningstar is linked to the combined CRSP/Thomsom Reuters data by matching manager names. My final mutual fund sample includes surviorship-bias-free data on holdings and biographical information for 1,408 funds and 3,220 mutual fund managers and spans the period from 2006 to 2016 \footnote{A sanity check: The base sample of \cite{cohen2008small} includes surviorship-bias-free data on holdings and biographical information for 1,648 US actively managed equity funds and 2,501 portfolio managers between January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+Following ~\cite{wermers2000mutual}, I merge the CRSP Survivorship Bias Free Mutual Fund database with the Thomson Reuters CDA/Spectrum S12 database using the MFLINKS table. The focus of my analysis is on actively managed U.S. equity funds, with the investment objective of aggressive growth, growth, or growth and income in the Thomsom Reuters CDA/Spectrum dataset\footnote{These funds have Investment Objective Code (IOC) of 2,3,or 4.}. 
+I apply several filters to form my sample (following ~\cite{kacperczyk2006unobserved}). I remove passive index funds by manually searching through fund name, index fund indicator, and Lipper objective name. I only include comonon stock \footnote{Stocks with share code 10 or 11 in CRSP. } holdings of mutual funds. 
 
-For companies in the mutual fund holding, I map the identities and educational background information of board members and senior directors from BoardEx by firm CUSIP identifier\footnote{BoardEx use ISIN, which is derived from CUSIP}. My final matched company data contains educational background on 52,583 directors for 6,257 stocks between January 2006 and December 2016\footnote{A sanity check: In \cite{cohen2008small}, the matched sample of combining company officials' biographical information to stock return data from CRSP includes educational background on 42,269 board members and 14,122 senior officials (56,391 combined senior directors) for 7,660 CRSP stocks betwen January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+After combining CRSP Survivorship Bias Free Mutual Fund database with the Thomson Reuters mutual fund holding data, I link the education history of mutual fund managers from Morningstar to the combined CRSP/Thomsom Reuters data. The mapping is done by matching porfolio managers' first and last names. Due to several data entry error and other non-standard reporting conventions \footnote{For example, some manger names reported in the CRSP Survivorship Bias Free dataset includes Dr. and Mr. before their first names. Others have professsional afficialitons attaached to the end of their last namaes, such as ``, CFA'' and ``, CPA''. Mornignstar fund manager name sometimes have ``PhD'' attached in the last name column.}, I first apply machine learning and textual analysis tools to clean up and standardize the reported names in the two database as a preliminary step. Then I mannually check for accuracy and correct casses where there are ambiguous entries\footnote{For example, portfolio manager A. Douglous Rao, who went to University of Virginia, appears in the Morningstar database. However, the entry in CRSP Survivorship Bias Free database is recorded as A. Rao. To ensure a high quality match, I use the fund name information attached to A. Rao and find his biography through online search and confirms that this individual indeed is called A. Douglous Rao and went to the University of Virginia. Thus, I fill in the full name in CRSP Survivorship Bias Free database so that it will guarantee a match with the Morningstar sample.}
+
+ My final mutual fund sample includes surviorship-bias-free data on holdings and biographical information for 1,408 funds and 3,220 mutual fund managers and spans the period from 2006 to 2016 \footnote{A sanity check: The base sample of \cite{cohen2008small} includes surviorship-bias-free data on holdings and biographical information for 1,648 US actively managed equity funds and 2,501 portfolio managers between January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
+
+So far, I have augmented the CRSP/Thomson Reuters combined dataset with mutual fund manager's educational backgroud. The next step is to attach the educational information of the senior directors for the holding companies. I map the identities and educational background information of board members and senior directors from BoardEx by firm CUSIP identifier\footnote{BoardEx use ISIN, which is derived from CUSIP}. My final matched company data contains educational background on 52,583 directors for 6,721 stocks between January 2006 and December 2016\footnote{A sanity check: In \cite{cohen2008small}, the matched sample of combining company officials' biographical information to stock return data from CRSP includes educational background on 42,269 board members and 14,122 senior officials (56,391 combined senior directors) for 7,660 CRSP stocks betwen January 1990 and December 2006. My sample size is comparable to theirs in magnitude}.
 
 \subsection{Connection and Connected Holdings}
 The social networks examined in \cite{cohen2008small} paper are defined over educational institutions. They link each member of the social network by these insitutions. They match institutions and degrees on Morningstar and BoardEx and group degrees into six categories: (1) business school (Master of Business Administration, MBA), (2) medical school (MD), (3) general graduate (Master of Arts, MA or Master of Science, MS), (4) Doctor of Philosophy (PhD), (5) law school (JD), and (6) general undergraduate. 
@@ -168,7 +173,7 @@ where $\mathbb{1}_{Connected}$ is a dummy variable that indicates whether compan
 \subsection{Summary Statistics}
 Table \ref{table:1} reports summary statistics for the matched compnay-mutual funds sample from January 2006 to December 2016.  
 
-  This table shows summary statistics as of January of each year of the sample of mutual funds and their common stock holdings between 2006 and 2016. I include in the sample of fund/portfolio managers actively-managed, domestic equity mutual funds from the merged Thomson Reuters - Moringstar data with the investment objective of aggressive growth, growth, or growth-and-income and non missing information on the portfolio manager's identity and educational background. The sample of stocks includes the funds' holdings in common stocks, with CRSP share codes 10 or 11, from the merged CRSP - BoardEx data with non missing information on the educational background of members of the board of directors and senior officers of the firm (CEO, CFO, or Chairman). Board members and senior officiers are combined and defined as directors.
+  This table shows summary statistics as of January of each year of the sample of mutual funds and their common stock holdings between 2006 and 2016. I include in the sample of fund/portfolio managers actively-managed, domestic equity mutual funds from the merged Thomson Reuters and Moringstar data with the investment objective of aggressive growth, growth, or growth-and-income and non missing information on the portfolio manager's identity and educational background. The sample of stocks includes the funds' holdings in common stocks, with CRSP share codes 10 or 11, from the merged CRSP and BoardEx data with non missing information on the educational background of members of the board of directors and senior officers of the firm (CEO, CFO, or Chairman). Board members and senior officiers are combined and defined as directors. The summary statistics of my sample is comparable to \cite{cohen2008small} 's. For example, their average number of funds per year over the period from 1990 to 2006 is 709, while I have in my sample period from 2006 to 2016 636 number of funds per year. 
 
 
 \begin{table}
@@ -179,11 +184,11 @@ Table \ref{table:1} reports summary statistics for the matched compnay-mutual fu
  & (1) & (2) & (3) & (4) & (5) \\
 VARIABLES & mean & median & min & max & sd \\ \hline
  &  &  &  &  &  \\
-Number of funds per year & 343.6 & 341 & 193 & 465 & 90.6 \\
-Number of portfolio managers per year & 275 & 266 & 163 & 373 & 69.7 \\
-Number of firms per year & 5,385 & 5,439 & 4,650 & 6,156 & 459.1 \\
-Number of directors per year & 12,916 & 13,000 & 7,939 & 16,314 & 2,687 \\
-Number of academic institutions per year & 179.0 & 191 & 124 & 210 & 28.4 \\
+Number of funds per year & 635.9 & 658 & 446 & 892 & 137.1 \\
+Number of portfolio managers per year & 513.4 & 536 & 358 & 711 & 107.5 \\
+Number of firms per year & 5,387 & 5,442 & 4,649 & 6,156 & 460.2 \\
+Number of directors per year & 15,401 & 15,534 & 13,240 & 17,222 & 1,345 \\
+Number of academic institutions per year & 257.2 & 258 & 206 & 326 & 34.20 \\
  &  &  &  &  &  \\ \hline
 \end{tabular}
 \\
@@ -195,9 +200,10 @@ Number of academic institutions per year & 179.0 & 191 & 124 & 210 & 28.4 \\
 VARIABLES & mean & median & min & max & sd \\ \hline
  &  &  &  &  &  \\
 Number of academic institutions per firm & 32.8 & 23 & 1 & 140 & 29.2 \\
-Number of directors per academic institution & 2,208 & 1,686 & 1 & 6,155 & 1,969 \\
-Number of academic institution per fund & 2.4 & 2 & 1 & 6 & 1.1 \\
-Number of directors per fund & 80.1 & 36 & 1 & 633 & 117.6 \\
+Number of directors per academic institution & 1,047 & 452 & 0 & 6,144 & 1,439 \\
+Number of academic institution per fund & 2.4 & 2 & 1 & 6 & 1.15 \\
+Number of portfolio managers per academic institution & 14.8 & 7 & 1 & 63 & 17.3 \\
+Number of directors per fund & 31.4 & 9 & 0 & 627 & 70.5 \\
  &  &  &  &  &  \\ \hline
 \end{tabular}
 \vspace*{10mm}
@@ -211,18 +217,18 @@ Table \ref{table:2} list the academic institutions that are most connected to bo
 \caption{ \ \ : \large \bf Summary statistics: academic institutions}
 \vspace*{5mm}
 \caption*{Firm's directors}
-\begin{tabular}{lllc}
+\begin{tabular}{lllcc}
   &                                                                      &  &                          \\ 
-\hline \\
-  &                                                                      &  & Average number of firms  \\ 
+\hline   \\
+  &   &  & Average number of firms  & Average percentage of CRSP Firms \\ 
 \\
-\cline{4-4}
+\cline{4-5}
 \\
-1 & Harvard University                                                   &  &  894      \\
-2 & \begin{tabular}[c]{@{}l@{}}University of Pennsylvania\\\end{tabular} &  &  698      \\ 
-3 & \begin{tabular}[c]{@{}l@{}}Columbia University\\\end{tabular}        &  &  582      \\
-4 & \begin{tabular}[c]{@{}l@{}}University of Chicago\\\end{tabular}      &  &  540      \\
-5 & Stanford University                                                  &  &  496      \\
+1 & Harvard University                                                   &  &  894   &  0.13   \\
+2 & \begin{tabular}[c]{@{}l@{}}University of Pennsylvania\\\end{tabular} &  &  698   &  0.10  \\ 
+3 & \begin{tabular}[c]{@{}l@{}}Columbia University\\\end{tabular}        &  &  582   &  0.08   \\
+4 & \begin{tabular}[c]{@{}l@{}}University of Chicago\\\end{tabular}      &  &  540   &  0.08   \\
+5 & Stanford University                                                  &  &  496   &  0.07   \\
 \\
 \hline
 \end{tabular}
@@ -230,18 +236,18 @@ Table \ref{table:2} list the academic institutions that are most connected to bo
 \vspace*{20mm}
 
 \caption*{ Portfolio managers}
-\begin{tabular}{lllc}
+\begin{tabular}{lllcc}
   &                                                                      &  &                          \\ 
 \hline \\
-  &                                                                      &  & Average number of managers  \\ 
+  &  &  & Average number of managers & Average percentage of Managers \\ 
 \\
-\cline{4-4}
+\cline{4-5}
 \\
-1 & Harvard University                                                   &  &  129      \\
+1 & Harvard University                                                   &  &  129  & 0.14   \\
 2 & \begin{tabular}[c]{@{}l@{}}Columbia University\\\end{tabular} &  & 93      \\ 
-3 & \begin{tabular}[c]{@{}l@{}}University of Pennsylvania\\\end{tabular}        &  &   92      \\
-4 & \begin{tabular}[c]{@{}l@{}}University of Chicago\\\end{tabular}      &  &    89    \\
-5 & New York University                                                  &  &    88      \\
+3 & \begin{tabular}[c]{@{}l@{}}University of Pennsylvania\\\end{tabular}        &  &   92   & 0.10     \\
+4 & \begin{tabular}[c]{@{}l@{}}University of Chicago\\\end{tabular}      &  &    89  & 0.10   \\
+5 & New York University                                                  &  &    88   & 0.10     \\
 \\
 \hline
 \end{tabular}
@@ -249,7 +255,7 @@ Table \ref{table:2} list the academic institutions that are most connected to bo
 \end{table}
 
 
-We see from Table \ref{table:2} that the uinversity most connected to both publicly traded firms and U.S. equity mutual funds is Harvard. Harvard is connected to approximately 10 percent of U.S. publicly traded firms. These connections are not merely to mid-level managers, but to senior officers in the firm. Similarly, Harvard is also most connected to active equity mutual funds in the United States. My results are very similar to \cite{cohen2008small} 's. The top five most connected five uniersities are the same, either for publicly traded firms or for U.S. active equity mutual fund, in both of our samples. Interestingly, the relative ranking has shifted. On the firms' side, the most salient differece is that Stanford University dropped from second place to the fifth place. All the remaining 
+We see from Table \ref{table:2} that the university most connected to both publicly traded firms and U.S. equity mutual funds is Harvard. Harvard is connected to approximately 10 percent of U.S. publicly traded firms. These connections are not merely to mid-level managers, but to senior officers in the firm. Similarly, Harvard is also most connected to active equity mutual funds in the United States. My results are very similar to \cite{cohen2008small} 's. The top five most connected five uniersities are the same, either for publicly traded firms or for U.S. active equity mutual fund, in both of our samples. Interestingly, the relative ranking has shifted. On the firms' side, the most salient differece is that Stanford University dropped from second place to the fifth place. All the remaining 
 schools keep the same relative ranking as they were a decade ago. While on the mutual fund side, Columbia University has the biggest jump, from a ranking of four to the runner-up. And the rest of the schools' relative rankings also remain unchanged. 
 Recall that the sample period of \cite{cohen2008small} is from January 1990 to December 2006, and my sample is constructed from January 2006 to December 2016. The ranking shift might also indicate changes in career choice among various school graduates and instutional culture across different universities. But this is not the main focus of this paper. 
 
@@ -257,54 +263,194 @@ Recall that the sample period of \cite{cohen2008small} is from January 1990 to D
 \subsection{Holdings of Connected Securities}
 This section mainly follows \cite{cohen2008small} 's procedure to examine mutual fund managers' portfolio choices. Equity portfolio managers may tend to overweight stocks in their social networks, probably as a result of familiarity bias (\cite{huberman2001familiarity}). Those fund manager could also overweight connected stocks because of they might exert less effort in obtaining firm information thanks to social connections with firm's senior officials. The first step of analysis is thus to empirically support the hypothesis that fund manager do place larger portfolio weights on socially connected firms. 
 
-Table 3 sho
+\ref{table:3} shows ordinary least square (OLS) pooled regressions of portfolio weights on connectd dummy and a series of controls. The connected dummy variable for a given portfolio manager and holding company's senior official (CEO, CFO, or chairman) pair equals one if the portfolio manager and the company's senior official attend the same same school. The dependent variable is the fund's portfolio weight in a given stock, in the basis points. The units of observation are stock-fund-quarter. Controls include market value of equity (ME) and past 12-month return (R12). The regression results is consistent with \cite{cohen2008small} 's findings. We both find that compared to the average weight in a given stock, mutual funds place larger bets on connected securities. As seen in column 1, compared to the average weight of 8 basis points, mutual funds invest an additional 11.58 basis points in securities of firms whose senior officials attended the same institution. All specifications of the regression all show that fund managers do allocate larger portfolio weights towards connected firms.
+
+\begin{table}
+\centering
+\caption{ \ \ : \large \bf Portfolio Weights in Connected vs. Nonconnected Stocks }
+\begin{tabular}{lcccc}
+\multicolumn{5}{c}{OLS : Portfolio Weights in Connected vs. Nonconnected Stocks} \\ \hline
+ & (1) & (2) & (3) & (4) \\ \hline
+ &  &  &  &  \\
+Connected & 11.58*** & 11.92*** & 7.075*** & 7.473*** \\
+ & (1.651) & (1.704) & (1.129) & (1.180) \\
+Constant & 8.003*** & 2.852*** & 5.745*** & 0.842 \\
+ & (0.578) & (0.531) & (0.473) & (0.728) \\
+ &  &  &  &  \\
+Controls & No & No & Yes & Yes \\
+ Quarter FE & No & Yes & No & Yes \\ \hline
+\multicolumn{5}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\label{table:3}
+\end{tabular}
+\caption*{This table reports pooled OLS quarterly regressions of mutual funds’ portfolio weights in connected and non-connected stocks. The sample
+period is 2006-2016 and the units of observation are fund-stock-quarter. The dependent variable in the regressions is the fund’s dollar investment
+in a stock as a percentage of total net assets of the fund. The independent variables of interest are those measuring the connection of the
+portfolio manager to the given firm. The ategorical variables for whether a senior officer (CEO, CFO, or Chairman) of the
+given firm and the given mutual fund manager attended the same school is defined as Connected dummy. The control variables included where indicated are ME, BM and R12 which are percentiles of market value of equity, and past 12 month return. Quarter fixed effects are included when indicated. Standard errors are adjusted for clustering at the quarter level and are reported in brackets below the coefficient estimates. 5\% statistical significance is indicated in bold}
+\end{table}
 
 
 
 
 
 \subsection{Returns of Aggregate Connected Portfolio}
+After establishing the fact that mutual mund managers do tend to overweight connected holdings, \cite{cohen2008small} further explores whether mutual fund earns higher returns on those connected stocks. 
+
+I follow their steps closesly and use a standard calender time portfolio approach. At the beginning of each calendar quarter, I assign stocks in each mutual fund portfolio (based on the most recent SEC filing) to one of two portfolios: connected or non-connected. I then compute monthly returns on connected and non-connected holdings between reports, based on the assumption that funds did not change their holdings between reports. Portfolios are rebalanced every calendar quarter and within a given fund portfolio, stocks are weighted by the fund’s dollar holdings (i.e., connected stocks are weighted by the fund’s dollar holdings in the connected portfolio, and non-connected stocks are weighted by the fund’s dollar holdings in the non-connected portfolio). Finally, I compute value weighted calendar time portfolios by averaging across funds, weighting individual fund portfolios by the fund’s total net asset value at the end of the previous quarter. 
+
+Table \ref{table:4} shows the results. This table includes all available stocks
+and all available funds. I report average annual portfolio returns minus Treasury bill
+returns (in percent) for the period 2006 to 2016. Table \ref{table:4} indicates that connected holdings earn excess returns of 8.92\% annually on average compared to 7.94\% for non-connected holdings. A long-short portfolio that
+holds the connected portfolio and sells short the non-connected portfolio makes on
+average 0.93\% per year (t-statistic of 1.29). Thus, I don't find significantly higher average returns on aggregate connected portfolios. Interstingly, I use \cite{cohen2008small}'s sample period from 1990 to 2006, and only find a marginally significant long-short portfolio return (t-statistic of 1.94). I include the result in the Appendix \ref{table:AppI}. There are some disprepancy between the working paper version and the published version of \cite{cohen2008small}. In their published version, they did not include this table.  
+
+One possilbe explanation of my result could be that my measure of connectedness correspond to their \emph{CONNECT 1}, while \cite{cohen2008small} uses the strongest version of their four measures, \emph{CONNECT 1}. This will probably reduce estimation noises. Another possible resaon is due to sample date difference. One may expect that such return differnce pattern disspipates and dispears in the long run.
+
+After a rough comparison of excess return with regard to the Treasury bill, I further analyze the risk-adjusted returns of these calender time portfolios. I mainly used Fama and French three factor model (as in \cite{fama1993common} ) and Famma and French five factor model (as in \cite{fama2016dissecting}) for this analysis. 
+
+Table \ref{table:5} shows the results of risk-adjusted returns. The aggregate connected portfolio earns 9.95 percent annually in raw return, 1.13 percent in three factor risk adjusted return, and 1.84 in five factor risk adjusted return. On the other hand, the aggregate nonconnected portfolio earns 8.97 percent annually in raw return, 0.29 percent in three factor risk adjusted return, and 0.08 in five factor risk adjusted return. The aggregate connected portfolio outperforms the non-connected one economically but not the outperformance is not statistically significant. Similarly, the long short portfolio that goes long the aggregate connected portfolio and short the aggregate nonconnected portfolio earns positive returns but still not statistically significant. annually in raw return, 1.13 percent in three factor risk adjusted return, and 1.84 in five factor risk adjusted return. 
+
+To explore the underlying issues, I also use \cite{cohen2008small}'s sample period from 1990 to 2006, and find some level of significance of the long-short portfolio return (t-statistic of 2.57 for three factor risk adjusted return and 2.83 for five factor risk adjusted return). I include the result in the Appendix \ref{table:AppII}. There are also some disprepancy between the working paper version and the published version of \cite{cohen2008small}. In their published version, they used diffenet risk adjustment benchmarks. 
+
+Similar to the excess return comparison, some possible explanation of my result could be that my measure of connectedness correspond to their \emph{CONNECT 1}, while \cite{cohen2008small} uses all four. Secondly, we used different risk adjustment benchmarks. \cite{cohen2008small} used momentum factor in their working paper version, and added liquidity factor in their published version. But I conjecture that another plausible resaon is due to sample date difference, and one may expect that such return differnce pattern disspipates and dispears in the long run. 
+
+\begin{table}
+\centering
+\caption{ \ \ : \large \bf  Returns on connected holdings, 2006 - 2016 }
+\begin{tabular}{lccc} 
+\hline
+\begin{tabular}[c]{@{}l@{}}Annual VW excess returns\end{tabular} & Connected Holdings   & Non-Connected    & L/S   \\
+\begin{tabular}[c]{@{}l@{}}Mean\\t - statistic\end{tabular}   & \begin{tabular}[c]{@{}l@{}}~8.92\\(3.36)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~7.94\\(3.87)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~0.93\\(1.29)\end{tabular}  \\
+Std deviation    & 25.28      & 23.48     & 4.46     \\
+Skewness    & \begin{tabular}[c]{@{}l@{}}-0.15\\\end{tabular}   & -0.18    & -0.12   \\
+Kurtosis   & 3.85  & 4.63 & 3.26   \\
+Sharpe Ratio   & 0.35 & 0.33   & 0.21    \\
+\hline
+\end{tabular}
+\label{table:4}
+\\
+\vspace*{5mm}
+\caption*{This table shows calendar time portfolio excess returns. At the beginning of every calendar quarters tocks in each mutual fund portfolio (based on the most recent SEC filing) are assigned to one of two portfolios (connected and non-connected). In this table, connected companies are defined as
+firms where at least a senior official (CEO, CFO or Chairman) received the same degree from the same institution as the fund’s portfolio manager. I compute monthly returns on connected and non-connected holdings between reports based on the assumption that funds did not change their holding between reports. Portfolios are rebalanced every calendar quarter and within a given fund portfolio, stocks are
+weighted by the fund’s dollar holdings. Finally, I compute value weighted calendar time portfolios
+by averaging across funds, weighting individual fund portfolios by the fund’s total net asset value at
+the end of the previous quarter. This table includes all available stocks and all available funds. I
+report average portfolio returns minus Treasury bill returns in the period 2006 to 2016. Returns are
+in annual percent, t-statistics are shown below the coefficient estimates. L/S is the annual average
+return of a zero cost portfolio that holds the portfolio of connected stocks and sells short the
+portfolio of non-connected stocks. t-statistics are shown below the coefficient estimates, and 5\%
+statistical significance is indicated in bold.}
+\end{table}
+
+
+\begin{table}
+\centering
+\caption{ \ \ : \large \bf  Abnormal returns on connected holdings, 2006 - 2016 }
+\begin{tabular}{lccc} 
+\hline
+\begin{tabular}[c]{@{}l@{}}Annual VW returns\end{tabular} & Connected Holdings   & Non-Connected    & L/S   \\
+\begin{tabular}[c]{@{}l@{}}Raw Return\\  \end{tabular}   & \begin{tabular}[c]{@{}l@{}}~9.95\\(3.75)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~8.97\\(4.37)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~0.97\\(1.29)\end{tabular}  \\
+
+\begin{tabular}[c]{@{}l@{}}3 factor alpha\\  \end{tabular}   & \begin{tabular}[c]{@{}l@{}}~1.13\\(1.75)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~0.29\\(0.32)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~0.84\\(1.02)\end{tabular}  \\
+
+\begin{tabular}[c]{@{}l@{}}5 factor alpha\\  \end{tabular}   & \begin{tabular}[c]{@{}l@{}}~1.84\\(1.68)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~0.08\\(0.12)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~0.76\\(1.13)\end{tabular}  \\
+
+\hline
+\end{tabular}
+\label{table:5}
+\\
+\vspace*{5mm}
+\caption*{This table shows calendar time portfolio returns. At the beginning of every calendar quarter, stocks in each mutual fund portfolio (based on the most recent SEC filing) are assigned to one of two portfolios (connected and nonconnected). Connected companies are defined as firms for which at least a senior official (CEO, CFO, or chairman) received any degree from the same institution as the fund’s portfolio manager (CONNECTED1).I compute monthly returns on connected and nonconnected holdings between reports based on the assumption that funds did not change their holdings between reports. Portfolios are rebalanced every calendar quarter, and within a given fund portfolio, stocks are value weighted by the fund’s dollar holdings. Finally, we compute value-weighted calendar time portfolios by averaging across funds, weighting individual fund portfolios by the fund’s total net asset value at the end of the previous quarter. This table includes all available stocks and all available funds. I report average raw returns, Fama French three factor alpha, and Fama French five factor alphas in the period 2006-2016. Alpha is the intercept on a regression of monthly portfolio excess returns. This table reports returns on connected stocks held by the mutual fund managers compared to their nonconnected holdings. Long-short is the annual average return of a zero cost portfolio that holds the portfolio of connected stocks and sells short the portfolio of nonconnected stocks. t-statistics are shown below the coefficient estimates.}
+\end{table}
+
 
 \subsection{Individual Stock Return Prediction}
+So far, I have shown from the mutual fund perspective that social networks between fund managers and holding company directors has both portfolio allocation and aggregate return implications. The results of overweighting connected firms is consistent with 
+\cite{cohen2008small} 's finding, yet I do not find a statistically significant higher return on the aggregate connected mutual fund portfolio in the recent decade sample. 
+
+To further test the information flow mechnism, I propse a new set of empirical study. Instead of looking at aggregate connected portfolio return, I construct a measure to capture firm-level social connection level. This measure is defined in \ref{eq:eq1}. Intuitively, this $ConHold_{i,t}$ variable indicates the percentage shares held by across all connected mutual funds versus the total shares outstanding. Alternatively, it also represents the dollar amount of the stocks held by all connected mutual funds normalized by its total market capitalization. Since stock price appears on both the nominator and the denominator, the second representation reduces to the original expression as shown in equation \ref{eq:eq1}.
+
+
 
 
 
 \section{Robustness and Future Work}
 To start with, my definiation of connectedness is related to the boradest catagorization proposed by \cite{cohen2008small}. However, \cite{cohen2008small} has more refined measures to define ``connected'' holdings. In their paper, they define four types of connections between the portfolio manager and the firm, based on whether the portfolio manager and a senior official of the firm (CEO, CFO, or chairman) attended the same school (CONNECTED1) and received the same degree (CONNECTED2), attend the same school at the same time (CONNECTED3), and attended the same school at the same time and received the same degree (CONNECTED4). These measures of connectedness are defined in an increasing degree of strength of the link, with CONNECTED1 being the weakest type and CONNECTED4 as the strongest type. In future work, I would like to use those four definition of connectedness to define various \emph{CONNECT} dummy variables, and apply equation (\ref{eq:eq1})to construct my meausre of individual stock's social connection. 
 
+Financial crisis
+split sample 2008 Sep and onwards. regulation changes....
 
+\section{Conclusion}
+\lipsum[1-2]
 
 
 \newpage
-complication:
-TR holding data:
-1. matching (with mflink2) using fdate, fundno
-2. prc correspond to fdate (quarter-end) don't use this! since fdate is legacy date no meaning!!
-3. shares correspond to rdate (actual (effective) date of the holdings)
+%complication:
+%TR holding data:
+%1. matching (with mflink2) using fdate, fundno
+%2. prc correspond to fdate (quarter-end) don't use this! since fdate is legacy date no meaning!!
+%3. shares correspond to rdate (actual (effective) date of the holdings)
+
 
 \clearpage
 
 \appendix
 
-\section{An Appendix}
+\section{Returns on connected holdings, 1990 - 2006}
 \label{sec:app1}
+\begin{table}[!htb]
+\centering
+\caption{ \ \ : \large \bf  Returns on connected holdings, 1990 - 2006 }
+\begin{tabular}{lccc} 
+\hline
+\begin{tabular}[c]{@{}l@{}}Annual VW excess returns\end{tabular} & Connected Holdings   & Non-Connected    & L/S   \\
+\begin{tabular}[c]{@{}l@{}}Mean\\t - statistic\end{tabular}   & \begin{tabular}[c]{@{}l@{}}~8.64\\(2.97)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~7.31\\(2.53)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~1.33\\(1.94)\end{tabular}  \\
+Std deviation    & 28.43      & 28.27     & 6.69     \\
+Skewness    & \begin{tabular}[c]{@{}l@{}}-0.64\\\end{tabular}   & -1.02    & -0.64   \\
+Kurtosis   & 4.93  & 6.28 & 4.14   \\
+Sharpe Ratio   & 0.30 & 0.25   & 0.20    \\
+\hline
+\end{tabular}
+\label{table:AppI}
+\\
+\vspace*{5mm}
+\caption*{This table shows calendar time portfolio excess returns. At the beginning of every calendar quarters tocks in each mutual fund portfolio (based on the most recent SEC filing) are assigned to one of two portfolios (connected and non-connected). In this table, connected companies are defined as
+firms where at least a senior official (CEO, CFO or Chairman) received the same degree from the same institution as the fund’s portfolio manager. I compute monthly returns on connected and non-connected holdings between reports based on the assumption that funds did not change their holding between reports. Portfolios are rebalanced every calendar quarter and within a given fund portfolio, stocks are
+weighted by the fund’s dollar holdings. Finally, I compute value weighted calendar time portfolios
+by averaging across funds, weighting individual fund portfolios by the fund’s total net asset value at
+the end of the previous quarter. This table includes all available stocks and all available funds. I
+report average portfolio returns minus Treasury bill returns in the period 1990 to 2006. Returns are
+in annual percent, t-statistics are shown below the coefficient estimates. L/S is the annual average
+return of a zero cost portfolio that holds the portfolio of connected stocks and sells short the
+portfolio of non-connected stocks. t-statistics are shown below the coefficient estimates, and 5\%
+statistical significance is indicated in bold.}
+\end{table}
 
-Here's an appendix with an equation. Note that equation numbering is quite different in appendices and that the JF wants the word ``Appendix'' to appear before the letter in the appendix title. This is all handled in \texttt{jf.sty}.
-\begin{equation}
-  E = mc^2.
-\label{eq:eqA}
-\end{equation}
 
-\section{Another Appendix}
-\label{sec:app2}
+\begin{table}[!htb]
+\centering
+\caption{ \ \ : \large \bf  Abnormal returns on connected holdings, 1990 - 2006 }
+\begin{tabular}{lccc} 
+\hline
+\begin{tabular}[c]{@{}l@{}}Annual VW returns\end{tabular} & Connected Holdings   & Non-Connected    & L/S   \\
+\begin{tabular}[c]{@{}l@{}}Raw Return\\  \end{tabular}   & \begin{tabular}[c]{@{}l@{}}~13.73\\(3.95)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~11.40\\(2.98)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~0.97\\(1.94)\end{tabular}  \\
 
-Here's another appendix with an equation.
-\begin{equation}
-  E = mc^2.
-\end{equation}
-Note that this is quite similar to Equation~\eqref{eq:eqA} in Appendix~\ref{sec:app1}.
+\begin{tabular}[c]{@{}l@{}}3 factor alpha\\  \end{tabular}   & \begin{tabular}[c]{@{}l@{}}~2.14\\(2.29)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~-0.21\\(0.42)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~2.35\\(2.57)\end{tabular}  \\
+
+\begin{tabular}[c]{@{}l@{}}5 factor alpha\\  \end{tabular}   & \begin{tabular}[c]{@{}l@{}}~2.08\\(2.81)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~-0.33\\(0.51)\end{tabular} & \begin{tabular}[c]{@{}l@{}}~2.41\\(2.83)\end{tabular}  \\
+
+\hline
+\end{tabular}
+\label{table:AppII}
+\\
+\vspace*{5mm}
+\caption*{This table shows calendar time portfolio returns. At the beginning of every calendar quarter, stocks in each mutual fund portfolio (based on the most recent SEC filing) are assigned to one of two portfolios (connected and nonconnected). Connected companies are defined as firms for which at least a senior official (CEO, CFO, or chairman) received any degree from the same institution as the fund’s portfolio manager (CONNECTED1).I compute monthly returns on connected and nonconnected holdings between reports based on the assumption that funds did not change their holdings between reports. Portfolios are rebalanced every calendar quarter, and within a given fund portfolio, stocks are value weighted by the fund’s dollar holdings. Finally, we compute value-weighted calendar time portfolios by averaging across funds, weighting individual fund portfolios by the fund’s total net asset value at the end of the previous quarter. This table includes all available stocks and all available funds. I report average raw returns, Fama French three factor alpha, and Fama French five factor alphas in the period 2006-2016. Alpha is the intercept on a regression of monthly portfolio excess returns. This table reports returns on connected stocks held by the mutual fund managers compared to their nonconnected holdings. Long-short is the annual average return of a zero cost portfolio that holds the portfolio of connected stocks and sells short the portfolio of nonconnected stocks. t-statistics are shown below the coefficient estimates.}
+\end{table}
+
+
 
 \clearpage
+
 \end{doublespace}
 % Bibliography.
 
@@ -324,16 +470,5 @@ Note that this is quite similar to Equation~\eqref{eq:eqA} in Appendix~\ref{sec:
 % Figures and tables, showing how to structure captions
 \clearpage
 
-\ 
-\vfill
-\begin{figure}[!htb]
-\centerline{
-%\includegraphics[width=7in]{Figure1}
-\rule{7in}{3in} % added by Karol Kozioł
-}
-  \caption{{\bf Structure of model: capital can be invested in a bank sector and an equity sector.} An intermediary has the expertise to reallocate capital between the sectors and to monitor bank capital against bank crashes.} \label{fig:0}
-\end{figure}
-\vfill
-\ 
 
 \end{document}
