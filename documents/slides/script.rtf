@@ -1,0 +1,55 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\margl1440\margr1440\vieww12700\viewh8800\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Hi, My name is Gigi Wang, I\'92m 4th year student in the finance division here at CBS.\
+It\'92s exciting to present my ongoing work here. \
+What I wanna talk about today is something that\'92s been attracting a lot of attention in the literature recently, which is social networks. \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Information moves security prices. The. information flow can transfer through social networks among agents in the financial markets. \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 In this paper I study how social networks play an important role in the financial market by looking at the social connections between equity mutual funds and their holding companies. \
+And the topic I\'92m gonna speak to you about today is Socially Connected Holding and Stock Return.\
+\
+A recent paper listed here shows that political connections provided corporate insiders with an information advantage about government intervention during the financial crisis. \
+My paper, instead, focus on social connections and will ask a related question:  whether social connection provide information advantage and does it  matter for predicting returns. \
+A more relevant paper is Cohen et al JPE 2008.  They use education background as proxy for social networks. \
+They document a systematic pattern across the entire universe of U.S equity mutual fund portfolio managers that fund managers place larger bets on socially connected firms and this allocation behavior have significant impact on the aggregate fund portfolio. \
+\
+\
+My paper extends and differs from Cohen et al JPE 2008 in several different ways. \
+First, they construct aggregate connected versus aggregate non connected portfolio and find connected outperform non connected. My paper, however, do not find such pattern in the latest decade sample. \
+Second, I provide firm-level evidence of how social networks affect firms\'92s future stock returns. To the best of my knowledge, this is the first paper that investigates the relationship b/w social networks and individual stock return.  Third, I also look at the changes in socially connected holdings, I coin it as socially connected trading, and explore its predictive power on future stock returns. \
+I\'92ll show you later how to construct the aggregate connected portfolio later and discuss the discrepancy in findings.\
+To the second bulletin point:\
+There are several reasons why I think firm-level evidence is important.  First of all, in Cohen\'92s paper, a given stock at a given time can be categorized as both connected and non connected. While 
+\fs22 \cf2 I define connected holding measure uniquely for each stock at a given time, which makes it less ambiguous to interpret. Secondly, by examining individual stock\'92s social connected- ness, I am able to test more directly the value of social network\'92s impact on firm-level return. I can use a rich arsenal of asset pricing research methodologies to explore return predictability and cross sectional return implications of firm\'92s social networks. \
+Now To the third bulletin point: 
+\fs24 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf2 If we care about whether mutual fund managers do have better access to  information through social network with their holding companies, the change in social connected holding is then crucial to help us answer the question. We may infer from holding company\'92s future return responses to the connected trading , or changes in  socially connected mutual fund manager\'92s holding, in order to investigate whether there is turly information advantage gained through social networks.\
+\
+Now we have a big picture of what this paper is about and its contribution to the literature. Let\'92s dive right in to the data: \
+I collected data from four different sources.\
+A standard database used in mutual fund research literature is the CRSP Survivorship Bias Free Mutual Fund Database. The CRSP Mutual Fund Database includes mainly fund characteristics, such as fund returns, total net assets, expense ratios, investment objectives, fund manager names, and etc.\
+Data on mutual fund holdings come from the Thomson Reuters CDA/Spectrum S12 database, includes all registered mutual funds filing with the Securities and Exchanges Commission (SEC). \
+Morningstar Direct, provides mutual fund managers\'92 biographical information including educational background\
+BoardEx is a research company specialized in social networks data on company officials,  employment education history. \
+\
+I first merged CRSP with TR holding using MFlinks table. Then I map the education history of mutual fund managers from Morningstar to the combined CRSP/Thomson Reuters data. The mapping is done by matching portfolio managers\'92 first and last names. The third step merge the senior directors along with their educational information using stock identifiers. The last step is to define a connection by matching the schools attended by fund manager and senior directors of the holding company.  The matching is pre-processed with the help of some ML tools, but still requires labor-intensive cross-checking and verification. \
+\
+Now let\'92s look at the summary statisitcs of my combined dataset. Jan 2006 - Dec 2016. I include  in the sample of fund/portfolio managers 
+\b actively-managed, domestic equity mutual funds
+\b0  from the merged Thomson Reuters and Moringstar data with the investment objective of aggressive growth, growth, or growth-and-income and non missing in- formation on the portfolio manager\'92s identity and educational background.\
+My data is comparable to Cohen\'92s, where they use 1990- 2006.\
+My matched sample contains educational background on 52K directors and 6K stocks. 1.4K funds, 3K fund managers.\
+
+\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+Let me start with some facts }

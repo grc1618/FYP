@@ -1,0 +1,200 @@
+\documentclass{beamer}
+\usetheme{Berlin}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+
+
+\usecolortheme{seahorse}
+\usepackage[latin1]{inputenc}
+\usefonttheme{professionalfonts}
+\usepackage{times}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows,shapes}
+\usepgflibrary{arrows} 
+
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [baseline=-.5ex]
+
+\usepackage{amsmath}
+\usepackage{verbatim}
+
+\usepackage{graphicx}
+\begin{document}
+
+\title{Socially Connected Holding and Stock Return}
+\author{Gigi Wang}
+\date{March 20, 2018}
+\maketitle
+
+\section{Introduction}
+\begin{frame}
+\frametitle{Motivation}
+\begin{enumerate}
+	\item Jagolinzer, Alan D., et al. "Political connections and the informativeness of insider trades." (2017).
+  \\ *  Political connection and informational advantage
+  \item Cohen et al (JPE 2008)
+  \\ *  Concentrated allocation towards socially connected firms
+\end{enumerate}
+
+\end{frame}
+
+
+\section{Introduction}
+\begin{frame}
+\frametitle{The Missing Piece}
+\begin{enumerate}
+  \item Cohen et al (JPE 2008)
+  \\ *  Constructed aggregate connected portfolio outperform !
+  \\ *  No firm-level evidence
+  \\ *  No changes in connected holdings
+  \item  This paper
+  \\ * Constructed aggregate connected portfolio outperform ?
+  \\ * Firm -level evidence
+  \\ * Changes in connected holding (aka connected trading)
+\end{enumerate}
+
+\end{frame}
+
+\section{Data}
+
+\begin{frame}
+\frametitle{Database}
+ * Sample Period: Jan 2006 - Dec 2016
+\begin{enumerate}
+\item CRSP Survivorship Bias Free Mutual Fund Database
+\item Thomson Reuters CDA/Spectrum S12 Database
+\item Morningstar Direct
+\item BoardEx
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data Processing}
+\begin{enumerate}
+\item CRSP + Thomson Reuters $\rightarrow$ CRSP/Thomson Reuters combined
+\item Morningstar + CRSP  $\rightarrow$ Mutual fund managers education
+\\ * Standardize names
+\\ * Complications such as : Sir. Douglous A. Rao Jr., CPA
+\item BoardEx + Thomson Reuters  $\rightarrow$ Holding firms' directors' education
+\item Match academic institutions' names
+\\ * Standardize school names
+\\ * Complications such as : U.C.L.A, Univ. of Cal LA, Univ. of California L.A
+\\ * Fuzzy match using machine learning tools (KNN)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary Statistics}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lccccc}
+\multicolumn{6}{c}{Panel A: Time Series} \\ \hline
+ & (1) & (2) & (3) & (4) & (5) \\
+VARIABLES & mean & median & min & max & sd \\ \hline
+ &  &  &  &  &  \\
+Number of funds per year & 635.9 & 658 & 446 & 892 & 137.1 \\
+Number of portfolio managers per year & 513.4 & 536 & 358 & 711 & 107.5 \\
+Number of firms per year & 5,387 & 5,442 & 4,649 & 6,156 & 460.2 \\
+Number of directors per year & 15,401 & 15,534 & 13,240 & 17,222 & 1,345 \\
+Number of schools per year & 257.2 & 258 & 206 & 326 & 34.20 \\
+ &  &  &  &  &  \\ \hline
+\end{tabular}
+}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lccccc}
+\multicolumn{6}{c}{Panel B: Pooled Firm-year and Fund-year} \\ \hline
+ & (1) & (2) & (3) & (4) & (5) \\
+VARIABLES & mean & median & min & max & sd \\ \hline
+ &  &  &  &  &  \\
+Number of academic institutions per firm & 32.8 & 23 & 1 & 140 & 29.2 \\
+Number of directors per school & 1,047 & 452 & 0 & 6,144 & 1,439 \\
+Number of schools per fund & 2.4 & 2 & 1 & 6 & 1.15 \\
+Number of portfolio managers per school & 14.8 & 7 & 1 & 63 & 17.3 \\
+Number of directors per fund & 31.4 & 9 & 0 & 627 & 70.5 \\
+ &  &  &  &  &  \\ \hline
+\end{tabular}
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Summary Statistics}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllcc}
+\hline   \\
+  &   &  & Average Number   & Average Percentage  \\ 
+    & 2006 -2016 & 1990-2006   & of Firms  & of CRSP Firms \\ 
+\\
+\cline{4-5}
+\\
+1 & \tikz[baseline]{\node[fill=green!20](d1){Harvard University} ;}  & \tikz[baseline]{\node[fill=green!20](d1){Harvard University  };}                                               &  894   &  0.13   \\
+2 & \begin{tabular}[c]{@{}l@{}}\tikz[baseline]{\node[fill=green!20](d1){University of Pennsylvania};}\\\end{tabular} & \tikz[na]\node[coordinate, fill=blue!20, anchor=base](n1) {}; \tikz[baseline]{\node(n1){Stanford University};}  &  698   &  0.10  \\ 
+3 & \begin{tabular}[c]{@{}l@{}}\tikz[baseline]{\node[fill=green!20](d1){Columbia University};}\\\end{tabular}  & \tikz[baseline]{\node[fill=green!20](d1){University of Pennsylvania };}      &  582   &  0.08   \\
+4 & \begin{tabular}[c]{@{}l@{}}\tikz[baseline]{\node[fill=green!20](d1){University of Chicago};}\\\end{tabular}   & \tikz[baseline]{\node[fill=green!20](d1){Columbia University };}   &  540   &  0.08   \\
+5 & \tikz[baseline]{\node(n2){Stanford University}}  & \tikz[baseline]{\node[fill=green!20](d1){University of Chicago };}&  496   &  0.07   \\
+\\
+\hline
+\end{tabular}
+\begin{tikzpicture}[overlay]
+\path[->] (n1) edge (n2);
+\end{tikzpicture}
+}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllcc}
+\hline   \\
+  &   &  & Average Number   & Average Percentage  \\ 
+    & 2006 -2016 & 1990-2006   & of Managers  & of Managers \\ 
+\\
+\cline{4-5}
+\\
+1 & \tikz[baseline]{\node[fill=green!20](d1){Harvard University} ;}  & \tikz[baseline]{\node[fill=green!20](d1){Harvard University  };}                                               &  129   &  0.14   \\
+2 & \begin{tabular}[c]{@{}l@{}}\tikz[baseline]{\node(n2){Columbia University};}\\\end{tabular} & \tikz[na]\node[coordinate, fill=blue!20, anchor=base](n1) {}; \tikz[baseline]{\node[fill=green!20](d1){University of Pennsylvania};}  &  93  &  0.10  \\ 
+3 & \begin{tabular}[c]{@{}l@{}}\tikz[baseline]{\node[fill=green!20](d1){University of Pennsylvania};}\\\end{tabular}  & \tikz[baseline]{\node(n1){Columbia University };}      &  92   &  0.10   \\
+4 & \begin{tabular}[c]{@{}l@{}}\tikz[baseline]{\node[fill=green!20](d1){University of Chicago};}\\\end{tabular}   & \tikz[baseline]{\node[fill=green!20](d1){University of Chicago };}   &  89   &  0.10   \\
+5 & \tikz[baseline]{\node[fill=green!20](d1){New York University}}  & \tikz[baseline]{\node[fill=green!20](d1){New York University};}&  88   &  0.10   \\
+\\
+\hline
+\end{tabular}
+\begin{tikzpicture}[overlay]
+\path[->] (n1) edge (n2);
+\end{tikzpicture}
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Infinite Relational Model (IRM)}
+\begin{alignat}{3}
+	\pi &| \alpha & &\sim CRP(\alpha)\\
+	\lambda_{pq} &| \gamma & &\sim Beta(\gamma,\gamma) &\forall p,q \in range(\pi)\\
+	e_{uv} &| \pi,\lambda_{\pi(u)\pi(v)} & &\sim Bernoulli(\lambda_{\pi(u)\pi(v)}) &\forall u,v \in V
+\end{alignat}
+\end{frame}
+
+
+
+
+
+\section{Summary}
+\begin{frame}
+\frametitle{Summary}
+\begin{center}
+\begin{enumerate}
+	\item An Example of Learning Structures: INMF;
+    \item An Example of Learning from Contents: HP+GP+IRM;
+    \item Proposal for the Thesis: Sparse Approximate Learning of Multivariate Generalized Hawkes Processes.
+\end{enumerate}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{center}
+{\bf{Thank You!}}
+\end{center}
+\end{frame}
+
+
+\end{document}
